@@ -14,13 +14,11 @@ export default function FullWidthEditorial() {
   // Parallax for image
   // Gentle parallax for image that doesn't pull top down
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "6%"]);
-  // Parallax for overlay text
-  const textY = useTransform(scrollYProgress, [0, 1], ["3%", "-3%"]);
 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-[85vh] lg:h-[90vh] min-h-[560px] overflow-hidden bg-black"
+      className="relative w-full h-[85vh] lg:h-[90vh] min-h-140 overflow-hidden bg-black"
     >
       {/* Background Image - positioned at top so full face and model are in view */}
       <motion.div
@@ -30,7 +28,7 @@ export default function FullWidthEditorial() {
         <img
           src="/images/fullwidth_bw_editorial.jpg"
           alt="Archie's by Priyanka Black & White Editorial"
-          className="w-full h-full object-cover object-top grayscale brightness-80"
+          className="w-full h-full object-cover object-top grayscale brightness-95"
         />
       </motion.div>
 
@@ -43,99 +41,8 @@ export default function FullWidthEditorial() {
         }}
       />
 
-      {/* Dark gradient overlay */}
-      <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-black/20" />
-
-      {/* Centered editorial text */}
-      <motion.div
-        className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-white"
-        style={{ y: textY }}
-      >
-        {/* Campaign label */}
-        <motion.span
-          initial={{ opacity: 0, letterSpacing: "0.1em" }}
-          whileInView={{ opacity: 1, letterSpacing: "0.5em" }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          className="block text-[10px] sm:text-xs font-bold uppercase text-white/60 mb-6 tracking-[0.5em]"
-        >
-          BLACK &amp; WHITE CAMPAIGN • MUMBAI ATELIER
-        </motion.span>
-
-        {/* Main headline — huge serif */}
-        <div className="overflow-hidden mb-2">
-          <motion.h2
-            initial={{ y: 100 }}
-            whileInView={{ y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-serif text-5xl sm:text-7xl lg:text-[100px] xl:text-[120px] font-light text-white leading-[0.9] tracking-tight"
-          >
-            SCULPTURAL
-          </motion.h2>
-        </div>
-        <div className="overflow-hidden mb-8">
-          <motion.h2
-            initial={{ y: 100 }}
-            whileInView={{ y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-serif text-5xl sm:text-7xl lg:text-[100px] xl:text-[120px] font-light text-white leading-[0.9] tracking-tight"
-          >
-            <em>ELEGANCE</em>
-          </motion.h2>
-        </div>
-
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="max-w-lg text-xs sm:text-sm font-light text-white/70 leading-relaxed mb-10 tracking-wider"
-        >
-          Architectural swim silhouettes designed to celebrate confidence.
-          <br />
-          Double-layered Italian lycra contoured to your exact body measurements.
-        </motion.p>
-
-        {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center gap-4"
-        >
-          <a
-            href="#collections"
-            className="px-8 py-3.5 border border-white text-white text-[11px] font-black uppercase tracking-[0.35em] hover:bg-white hover:text-black transition-all"
-          >
-            EXPLORE COLLECTION
-          </a>
-          <button
-            className="px-8 py-3.5 bg-white/10 backdrop-blur-sm border border-white/30 text-white text-[11px] font-black uppercase tracking-[0.35em] hover:bg-white/20 transition-all"
-            onClick={() => document.getElementById("custom-fit-trigger")?.click()}
-          >
-            BOOK CUSTOM FIT
-          </button>
-        </motion.div>
-
-        {/* Edition info bottom */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="absolute bottom-8 left-0 right-0 flex items-center justify-center gap-8"
-        >
-          <span className="w-12 h-px bg-white/30" />
-          <span className="text-[9px] font-medium tracking-[0.4em] uppercase text-white/40">
-            ARCHIE BY PRIYANKA • SS 2026
-          </span>
-          <span className="w-12 h-px bg-white/30" />
-        </motion.div>
-      </motion.div>
+      {/* Subtle bottom vignette to blend naturally */}
+      <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-black/40 to-transparent pointer-events-none" />
     </section>
   );
 }
