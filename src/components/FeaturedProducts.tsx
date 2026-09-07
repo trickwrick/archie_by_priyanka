@@ -9,9 +9,11 @@ interface FeaturedProductsProps {
   onAddToCart: (product: Product, size: string, color: string) => void;
   onQuickView: (product: Product) => void;
   onOpenCustomFitModal: () => void;
+  externalCategory?: string;
+  onCategoryChange?: (cat: string) => void;
 }
 
-const CATEGORIES = ["All", "Monokinis", "Mesh & Cutouts", "Bikinis"];
+const CATEGORIES = ["All", "Monokinis", "Bikinis", "Mesh & Cutouts", "Resortwear"];
 
 // Stagger container variants
 const containerVariants = {
@@ -35,12 +37,20 @@ export default function FeaturedProducts({
   onAddToCart,
   onQuickView,
   onOpenCustomFitModal,
+  externalCategory,
+  onCategoryChange,
 }: FeaturedProductsProps) {
-  const [activeCategory, setActiveCategory] = useState<string>("All");
+  const [activeCategory, setActiveCategory] = useState<string>(externalCategory || "All");
   const [selectedSizes, setSelectedSizes] = useState<{ [key: string]: string }>({});
   const [selectedColors, setSelectedColors] = useState<{ [key: string]: string }>({});
   const [wishlist, setWishlist] = useState<string[]>([]);
   const [addedAnimation, setAddedAnimation] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (externalCategory) {
+      setActiveCategory(externalCategory);
+    }
+  }, [externalCategory]);
 
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);

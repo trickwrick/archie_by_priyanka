@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import CategorySection from "@/components/CategorySection";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import EditorialSection from "@/components/EditorialSection";
 import BrandPromises from "@/components/BrandPromises";
@@ -20,6 +21,7 @@ export default function Home() {
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
   const [isCustomFitModalOpen, setIsCustomFitModalOpen] = useState<boolean>(false);
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
   const handleAddToCart = (product: Product, size: string, color: string) => {
     setCartItems((prev) => {
@@ -81,8 +83,16 @@ export default function Home() {
       {/* Hero Slider */}
       <Hero onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
 
+      {/* Shop By Category Section */}
+      <CategorySection
+        onSelectCategory={(cat) => setSelectedCategory(cat)}
+        onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)}
+      />
+
       {/* Featured Product Catalog */}
       <FeaturedProducts
+        externalCategory={selectedCategory}
+        onCategoryChange={setSelectedCategory}
         onAddToCart={handleAddToCart}
         onQuickView={(p) => setQuickViewProduct(p)}
         onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)}
