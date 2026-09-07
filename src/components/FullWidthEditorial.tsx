@@ -12,24 +12,25 @@ export default function FullWidthEditorial() {
   });
 
   // Parallax for image
-  const imageY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+  // Gentle parallax for image that doesn't pull top down
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "6%"]);
   // Parallax for overlay text
-  const textY = useTransform(scrollYProgress, [0, 1], ["5%", "-5%"]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["3%", "-3%"]);
 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-[80vh] lg:h-screen overflow-hidden bg-black"
+      className="relative w-full h-[85vh] lg:h-[90vh] min-h-[560px] overflow-hidden bg-black"
     >
-      {/* Parallax Background Image */}
+      {/* Background Image - positioned at top so full face and model are in view */}
       <motion.div
-        className="absolute inset-0 scale-[1.2]"
+        className="absolute inset-0"
         style={{ y: imageY }}
       >
         <img
           src="/images/fullwidth_bw_editorial.jpg"
           alt="Archie's by Priyanka Black & White Editorial"
-          className="w-full h-full object-cover object-center grayscale brightness-75"
+          className="w-full h-full object-cover object-top grayscale brightness-80"
         />
       </motion.div>
 
