@@ -55,7 +55,7 @@ export default function Logo({ light = false, compact = false, className = "" }:
     <div className={`flex flex-col items-center text-center py-1 ${className}`}>
       {/* Official Brand Sun & Wave Icon */}
       <svg
-        className="w-8 h-8 sm:w-10 sm:h-10 mb-1"
+        className="w-6 h-6 sm:w-7 sm:h-7 mb-1"
         viewBox="0 0 100 100"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -78,19 +78,19 @@ export default function Logo({ light = false, compact = false, className = "" }:
       </svg>
 
       {/* Main Title: Archie's */}
-      <h1 className={`font-serif text-2xl sm:text-3xl lg:text-4xl font-normal tracking-widest ${textColor} leading-tight`}>
+      <h1 className={`font-serif text-xl sm:text-2xl font-normal tracking-widest ${textColor} leading-tight`}>
         Archie&apos;s
       </h1>
 
       {/* Gold Line Divider with Center Dot */}
-      <div className="flex items-center justify-center space-x-2 my-1 w-28 sm:w-36 opacity-90">
+      <div className="flex items-center justify-center space-x-2 my-0.5 w-20 sm:w-28 opacity-90">
         <div className="h-px flex-1 bg-linear-to-r from-transparent to-[#C8A366]"></div>
         <div className="w-1.5 h-1.5 rounded-full bg-[#C8A366]"></div>
         <div className="h-px flex-1 bg-linear-to-l from-transparent to-[#C8A366]"></div>
       </div>
 
       {/* Subtitle: B Y  P R I Y A N K A */}
-      <span className={`text-[9px] sm:text-[10px] tracking-[0.45em] uppercase font-sans font-medium ${subtextColor} block mt-0.5`}>
+      <span className={`text-[8px] sm:text-[9px] tracking-[0.45em] uppercase font-sans font-medium ${subtextColor} block mt-0.5`}>
         B Y  P R I Y A N K A
       </span>
     </div>

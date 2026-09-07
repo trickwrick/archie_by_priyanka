@@ -14,16 +14,16 @@ const InstagramIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
 
 const GRID_ITEMS = [
   { id: "grid-1",  image: "/images/swimsuit_mesh_black.jpg",  title: "Aegean Black Mesh Plunge Monokini",  aspect: "aspect-square",  size: "col-span-1" },
-  { id: "grid-2",  image: "/images/insta_blue_plunge.jpg",    title: "Sky Blue Plunge & White Crochet Knit", aspect: "aspect-[4/5]",   size: "col-span-1" },
-  { id: "grid-3",  image: "/images/insta_pink_cutout.jpg",    title: "Hot Pink Keyhole Santorini Monokini", aspect: "aspect-[3/4]",   size: "col-span-1" },
+  { id: "grid-2",  image: "/images/insta_blue_plunge.jpg",    title: "Sky Blue Plunge & White Crochet Knit", aspect: "aspect-square",  size: "col-span-1" },
+  { id: "grid-3",  image: "/images/insta_pink_cutout.jpg",    title: "Hot Pink Keyhole Santorini Monokini", aspect: "aspect-square",  size: "col-span-1" },
   { id: "grid-4",  image: "/images/swimsuit_ocean_blue.jpg",  title: "Capri Royal Blue Gold Buckle Set",    aspect: "aspect-square",  size: "col-span-1" },
-  { id: "grid-5",  image: "/images/insta_straw_hat.jpg",      title: "Polka Dot Bikini & Wide Straw Hat",   aspect: "aspect-[3/4]",   size: "col-span-1" },
+  { id: "grid-5",  image: "/images/insta_straw_hat.jpg",      title: "Polka Dot Bikini & Wide Straw Hat",   aspect: "aspect-square",  size: "col-span-1" },
   { id: "grid-6",  image: "/images/swimsuit_neon_lime.jpg",   title: "Riviera High-Waist Neon Lime Set",    aspect: "aspect-square",  size: "col-span-1" },
-  { id: "grid-7",  image: "/images/insta_ombre_blue.jpg",     title: "Ocean Blue Ombre Gradient Monokini",  aspect: "aspect-[4/5]",   size: "col-span-1" },
+  { id: "grid-7",  image: "/images/insta_ombre_blue.jpg",     title: "Ocean Blue Ombre Gradient Monokini",  aspect: "aspect-square",  size: "col-span-1" },
   { id: "grid-8",  image: "/images/hero_beach_luxury.jpg",    title: "Bronze Metallic Criss-Cross Wrap",    aspect: "aspect-square",  size: "col-span-1" },
-  { id: "grid-9",  image: "/images/oye_luxury_hero.jpg",      title: "Summer 2026 Towel Wrap Editorial",    aspect: "aspect-[3/4]",   size: "col-span-1" },
+  { id: "grid-9",  image: "/images/oye_luxury_hero.jpg",      title: "Summer 2026 Towel Wrap Editorial",    aspect: "aspect-square",  size: "col-span-1" },
   { id: "grid-10", image: "/images/swimsuit_mesh_black.jpg",  title: "Sheer Panel High-Neck Silhouette",    aspect: "aspect-square",  size: "col-span-1" },
-  { id: "grid-11", image: "/images/insta_blue_plunge.jpg",    title: "Bespoke Resortwear & Cover-up",       aspect: "aspect-[4/5]",   size: "col-span-1" },
+  { id: "grid-11", image: "/images/insta_blue_plunge.jpg",    title: "Bespoke Resortwear & Cover-up",       aspect: "aspect-square",  size: "col-span-1" },
   { id: "grid-12", image: "/images/swimsuit_ocean_blue.jpg",  title: "Mediterranean 24k Gold Accents",      aspect: "aspect-square",  size: "col-span-1" },
 ];
 

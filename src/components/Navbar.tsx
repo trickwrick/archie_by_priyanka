@@ -59,7 +59,7 @@ export default function Navbar({
             className={`w-full flex items-center justify-between transition-all duration-700 ease-in-out overflow-hidden ${
               isScrolled
                 ? "max-h-0 opacity-0 -translate-y-3 pointer-events-none mb-0"
-                : "max-h-60 opacity-100 translate-y-0 mb-3 py-1"
+                : "max-h-40 opacity-100 translate-y-0 mb-1 py-0.5"
             }`}
           >
             {/* Mobile Menu Icon */}
