@@ -193,17 +193,14 @@ export default function FeaturedProducts({
               const currentColor = selectedColors[product.id] || product.colors[0].name;
               const isWishlisted = wishlist.includes(product.id);
               const isJustAdded = addedAnimation === product.id;
-              // Make first card tall on desktop
-              const isFeatured = index === 0;
-
               return (
                 <motion.div
                   key={product.id}
                   variants={cardVariants}
-                  className={`group flex flex-col ${isFeatured ? "lg:row-span-2" : ""}`}
+                  className="group flex flex-col"
                 >
                   {/* Image Container */}
-                  <div className={`relative overflow-hidden bg-[#EDE8DF] ${isFeatured ? "aspect-3/5" : "aspect-3/4"}`}>
+                  <div className="relative overflow-hidden bg-[#EDE8DF] aspect-3/4">
                     <img
                       src={product.image}
                       alt={product.name}
