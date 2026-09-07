@@ -11,20 +11,22 @@ export default function FullWidthEditorial() {
     offset: ["start end", "end start"],
   });
 
-  // Parallax for image
-  // Gentle parallax for image that doesn't pull top down
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "6%"]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["2%", "-2%"]);
+  // Rich cinematic parallax - image moves smoothly on scroll
+  const imageY = useTransform(scrollYProgress, [0, 1], ["-8%", "10%"]);
+  // Counter-motion for text creates 3D depth
+  const textY = useTransform(scrollYProgress, [0, 1], ["8%", "-8%"]);
+  // Subtle scale dynamic for living editorial feel
+  const imageScale = useTransform(scrollYProgress, [0, 0.5, 1], [1.1, 1.15, 1.1]);
 
   return (
     <section
       ref={sectionRef}
       className="relative w-full h-[85vh] lg:h-[90vh] min-h-140 overflow-hidden bg-black"
     >
-      {/* Background Image - positioned at top so full face and model are in view */}
+      {/* Parallax Background Image - extended container so motion is vivid and face remains visible */}
       <motion.div
-        className="absolute inset-0"
-        style={{ y: imageY }}
+        className="absolute -top-[10%] inset-x-0 h-[120%] origin-top will-change-transform"
+        style={{ y: imageY, scale: imageScale }}
       >
         <img
           src="/images/fullwidth_bw_editorial.jpg"
