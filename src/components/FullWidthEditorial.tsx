@@ -25,7 +25,7 @@ export default function FullWidthEditorial() {
     >
       {/* Parallax Background Image - extended container so motion is vivid and face remains visible */}
       <motion.div
-        className="absolute -top-[10%] inset-x-0 h-[120%] origin-top will-change-transform"
+        className="absolute top-[-10%] inset-x-0 h-[120%] origin-top will-change-transform"
         style={{ y: imageY, scale: imageScale }}
       >
         <img
