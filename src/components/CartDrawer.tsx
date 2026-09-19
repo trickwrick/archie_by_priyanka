@@ -1,37 +1,23 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { Product } from "@/data/products";
 import { X, Trash2, ShoppingBag, Sparkles, ArrowRight, ShieldCheck, Truck } from "lucide-react";
-
-export interface CartItem {
-  product: Product;
-  size: string;
-  color: string;
-  quantity: number;
-}
+import { useShop, CartItem } from "@/context/ShopContext";
 
 interface CartDrawerProps {
-  isOpen: boolean;
-  onClose: () => void;
-  cartItems: CartItem[];
-  onUpdateQuantity: (productId: string, size: string, color: string, delta: number) => void;
-  onRemoveItem: (productId: string, size: string, color: string) => void;
   onOpenCustomFitModal: () => void;
 }
 
 export default function CartDrawer({
-  isOpen,
-  onClose,
-  cartItems,
-  onUpdateQuantity,
-  onRemoveItem,
   onOpenCustomFitModal,
 }: CartDrawerProps) {
+  const { isCartOpen, setIsCartOpen, cartItems, updateQuantity, removeFromCart } = useShop();
   const [promoCode, setPromoCode] = useState("");
   const [discountApplied, setDiscountApplied] = useState(false);
 
-  if (!isOpen) return null;
+  if (!isCartOpen) return null;
 
   const subtotal = cartItems.reduce(
     (acc, item) => acc + item.product.price * item.quantity,
@@ -68,7 +54,7 @@ export default function CartDrawer({
             </div>
           </div>
           <button
-            onClick={onClose}
+            onClick={() => setIsCartOpen(false)}
             className="p-2 text-neutral-400 hover:text-white transition-colors"
           >
             <X className="w-6 h-6" />
@@ -103,7 +89,7 @@ export default function CartDrawer({
                 Explore our signature monokinis, bikinis, and custom resortwear pieces.
               </p>
               <button
-                onClick={onClose}
+                onClick={() => setIsCartOpen(false)}
                 className="mt-4 px-6 py-3 bg-[#1A1A1A] text-white text-xs font-bold uppercase tracking-widest hover:bg-[#9A7B38] transition-colors"
               >
                 Start Shopping
@@ -127,7 +113,7 @@ export default function CartDrawer({
                         {item.product.name}
                       </h4>
                       <button
-                        onClick={() => onRemoveItem(item.product.id, item.size, item.color)}
+                        onClick={() => removeFromCart(item.product.id, item.size, item.color)}
                         className="text-[#999] hover:text-red-600 transition-colors"
                         title="Remove"
                       >
@@ -146,7 +132,7 @@ export default function CartDrawer({
                     <div className="flex items-center border border-[#CCC] bg-white">
                       <button
                         onClick={() =>
-                          onUpdateQuantity(item.product.id, item.size, item.color, -1)
+                          updateQuantity(item.product.id, item.size, item.color, -1)
                         }
                         className="px-2.5 py-0.5 text-xs text-[#555] hover:bg-[#EEE]"
                       >
@@ -155,7 +141,7 @@ export default function CartDrawer({
                       <span className="px-3 py-0.5 text-xs font-semibold">{item.quantity}</span>
                       <button
                         onClick={() =>
-                          onUpdateQuantity(item.product.id, item.size, item.color, 1)
+                          updateQuantity(item.product.id, item.size, item.color, 1)
                         }
                         className="px-2.5 py-0.5 text-xs text-[#555] hover:bg-[#EEE]"
                       >
@@ -196,7 +182,7 @@ export default function CartDrawer({
             {/* Custom fit note trigger */}
             <button
               onClick={() => {
-                onClose();
+                setIsCartOpen(false);
                 onOpenCustomFitModal();
               }}
               className="w-full text-left py-2 px-3 bg-[#F8F5EE] border border-[#E0D9C8] text-[11px] text-[#9A7B38] font-bold flex items-center justify-between"
@@ -231,17 +217,14 @@ export default function CartDrawer({
             </div>
 
             {/* Checkout Button */}
-            <a
-              href={`https://wa.me/919876543210?text=Hi%20Priyanka!%20I'd%20like%20to%20place%20an%20order%20for%20items%20totaling%20₹${grandTotal.toLocaleString(
-                "en-IN"
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/checkout"
+              onClick={() => setIsCartOpen(false)}
               className="w-full py-4 bg-[#1A1A1A] text-white text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#9A7B38] transition-all duration-300 shadow-lg flex items-center justify-center gap-2"
             >
               Proceed to Secure Checkout
               <ArrowRight className="w-4 h-4 text-[#D4AF37]" />
-            </a>
+            </Link>
           </div>
         )}
       </div>

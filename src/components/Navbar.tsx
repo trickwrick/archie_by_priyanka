@@ -1,26 +1,34 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Search, ShoppingBag, Heart, Menu, X, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { Search, ShoppingBag, Heart, Menu, X, Sparkles, User } from "lucide-react";
 import Logo from "@/components/Logo";
+import { useShop } from "@/context/ShopContext";
 
 interface NavbarProps {
-  cartCount: number;
-  wishlistCount: number;
-  onOpenCart: () => void;
   onOpenCustomFitModal: () => void;
 }
 
 export default function Navbar({
-  cartCount,
-  wishlistCount,
-  onOpenCart,
   onOpenCustomFitModal,
 }: NavbarProps) {
+  const { cartTotalCount, setIsCartOpen, wishlistCount } = useShop();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const router = useRouter();
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      router.push(`/products?q=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchOpen(false);
+      setSearchQuery("");
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -84,9 +92,9 @@ export default function Navbar({
 
             {/* Center Official Brand Logo (Sun & Wave Icon + Archie's + Divider + BY PRIYANKA) */}
             <div className="text-center py-1">
-              <a href="#">
+              <Link href="/">
                 <Logo light={true} />
-              </a>
+              </Link>
             </div>
 
             {/* Top Right Action Links */}
@@ -106,12 +114,18 @@ export default function Navbar({
                 <span className="hidden md:inline">SEARCH</span>
               </button>
 
+              <Link href="/account" className="hover:text-[#C8A366] transition-colors flex items-center text-white text-xs font-bold uppercase tracking-[0.25em]" title="My Account">
+                ACCOUNT
+              </Link>
               <button
-                onClick={onOpenCart}
+                onClick={() => setIsCartOpen(true)}
                 className="bg-[#F5EFE6] text-[#1E332D] hover:bg-[#C8A366] hover:text-white border border-[#C8A366]/40 px-3.5 py-1.5 text-xs font-bold tracking-[0.25em] uppercase transition-all shadow-sm"
               >
-                CART ({cartCount})
+                CART ({cartTotalCount})
               </button>
+              <Link href="/favorites" className="hover:text-[#C8A366] transition-colors flex items-center gap-1 text-white">
+                 <Heart className="w-4 h-4 stroke-1 inline" /> ({wishlistCount})
+              </Link>
             </div>
           </div>
 
@@ -127,9 +141,9 @@ export default function Navbar({
                 isScrolled ? "opacity-100 w-auto" : "opacity-0 w-0 overflow-hidden"
               }`}
             >
-              <a href="#">
+              <Link href="/">
                 <Logo light={false} compact={true} />
-              </a>
+              </Link>
             </div>
 
             {/* Centered Navigation Category Links */}
@@ -138,30 +152,30 @@ export default function Navbar({
                 isScrolled ? "text-[#1E332D]" : "text-white/90"
               }`}
             >
-              <a
-                href="#collections"
+              <Link
+                href="/products"
                 className={`pb-0.5 transition-colors ${
                   isScrolled ? "hover:text-[#C8A366]" : "hover:text-white hover:border-b border-white"
                 }`}
               >
-                SWIMWEAR
-              </a>
-              <a
-                href="#collections"
+                SHOP ALL
+              </Link>
+              <Link
+                href="/products?category=Monokinis"
                 className={`pb-0.5 transition-colors ${
                   isScrolled ? "hover:text-[#C8A366]" : "hover:text-white hover:border-b border-white"
                 }`}
               >
-                ONE PIECE
-              </a>
-              <a
-                href="#collections"
+                MONOKINIS
+              </Link>
+              <Link
+                href="/products?category=Bikinis"
                 className={`pb-0.5 transition-colors ${
                   isScrolled ? "hover:text-[#C8A366]" : "hover:text-white hover:border-b border-white"
                 }`}
               >
                 BIKINIS
-              </a>
+              </Link>
               <button
                 onClick={onOpenCustomFitModal}
                 className={`font-bold transition-colors ${
@@ -193,11 +207,17 @@ export default function Navbar({
               >
                 <Search className="w-4 h-4 text-[#1E332D] stroke-1" />
               </button>
-              <button
-                onClick={onOpenCart}
+              <Link
+                href="/account"
                 className="bg-[#1E332D] text-white px-3 py-1 text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-[#C8A366] transition-colors shadow-xs"
               >
-                CART ({cartCount})
+                ACCOUNT
+              </Link>
+              <button
+                onClick={() => setIsCartOpen(true)}
+                className="bg-[#1E332D] text-white px-3 py-1 text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-[#C8A366] transition-colors shadow-xs"
+              >
+                CART ({cartTotalCount})
               </button>
             </div>
           </div>
@@ -206,7 +226,7 @@ export default function Navbar({
         {/* Expandable Search Input */}
         {searchOpen && (
           <div className="max-w-2xl mx-auto px-4 mt-3 animate-in fade-in duration-300">
-            <div className="relative">
+            <form onSubmit={handleSearchSubmit} className="relative">
               <input
                 type="text"
                 value={searchQuery}
@@ -220,6 +240,7 @@ export default function Navbar({
                 autoFocus
               />
               <button
+                type="button"
                 onClick={() => setSearchOpen(false)}
                 className={`absolute right-4 top-2.5 ${
                   isScrolled ? "text-[#1E332D] hover:text-[#C8A366]" : "text-white hover:text-[#C8A366]"
@@ -227,7 +248,7 @@ export default function Navbar({
               >
                 <X className="w-4 h-4" />
               </button>
-            </div>
+            </form>
           </div>
         )}
       </nav>
@@ -237,15 +258,18 @@ export default function Navbar({
         <div className="fixed inset-0 z-50 bg-[#F5EFE6] lg:hidden p-8 flex flex-col justify-between text-[#1E332D] animate-in fade-in">
           <div>
             <div className="flex justify-between items-center pb-6 border-b border-[#C8A366]/30">
-              <Logo light={false} compact={true} />
+              <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+                <Logo light={false} compact={true} />
+              </Link>
               <button onClick={() => setMobileMenuOpen(false)}>
                 <X className="w-6 h-6 text-[#1E332D]" />
               </button>
             </div>
             <div className="flex flex-col space-y-6 mt-8 text-xs uppercase tracking-[0.3em] font-bold text-[#1E332D]">
-              <a href="#collections" onClick={() => setMobileMenuOpen(false)}>SWIMWEAR COLLECTION</a>
-              <a href="#collections" onClick={() => setMobileMenuOpen(false)}>ONE PIECE & MONOKINIS</a>
-              <a href="#collections" onClick={() => setMobileMenuOpen(false)}>BIKINIS</a>
+              <Link href="/products" onClick={() => setMobileMenuOpen(false)}>SHOP ALL</Link>
+              <Link href="/products?category=Monokinis" onClick={() => setMobileMenuOpen(false)}>ONE PIECE & MONOKINIS</Link>
+              <Link href="/products?category=Bikinis" onClick={() => setMobileMenuOpen(false)}>BIKINIS</Link>
+              <Link href="/account" onClick={() => setMobileMenuOpen(false)}>MY ACCOUNT</Link>
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);

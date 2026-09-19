@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Send, Heart, Sparkles, ShieldCheck, Truck, Lock } from "lucide-react";
+import Link from "next/link";
 
 const InstagramIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
   <svg
@@ -83,24 +84,24 @@ export default function Footer({ onOpenCustomFitModal }: FooterProps) {
               </h4>
               <ul className="space-y-2.5">
                 <li>
-                  <a href="#collections" className="hover:text-[#8C6D27] transition-colors">
+                  <Link href="/products?category=Monokinis" className="hover:text-[#8C6D27] transition-colors">
                     The Monokini Edit
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#collections" className="hover:text-[#8C6D27] transition-colors">
+                  <Link href="/products?category=Mesh & Cutouts" className="hover:text-[#8C6D27] transition-colors">
                     Optical Mesh Cutouts
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#collections" className="hover:text-[#8C6D27] transition-colors">
+                  <Link href="/products?category=Bikinis" className="hover:text-[#8C6D27] transition-colors">
                     Riviera Ribbed Bikinis
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#collections" className="hover:text-[#8C6D27] transition-colors">
+                  <Link href="/products?category=Resortwear" className="hover:text-[#8C6D27] transition-colors">
                     Luxe Sarongs & Cover-ups
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -120,19 +121,19 @@ export default function Footer({ onOpenCustomFitModal }: FooterProps) {
                   </button>
                 </li>
                 <li>
-                  <a href="#instagram" className="hover:text-[#8C6D27] transition-colors">
+                  <a href="https://www.instagram.com/archie_by_priyanka/" target="_blank" rel="noopener noreferrer" className="hover:text-[#8C6D27] transition-colors">
                     Personal Styling DM
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-[#8C6D27] transition-colors">
+                  <Link href="/products" className="hover:text-[#8C6D27] transition-colors">
                     Care & Lycra Guide
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-[#8C6D27] transition-colors">
+                  <Link href="/products" className="hover:text-[#8C6D27] transition-colors">
                     Global Shipping & Returns
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
