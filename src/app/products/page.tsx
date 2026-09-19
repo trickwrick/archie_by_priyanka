@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CustomFittingStudio from "@/components/CustomFittingStudio";
@@ -12,7 +12,7 @@ import { Heart, ShoppingBag, Eye } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
-export default function ProductsPage() {
+function ProductsContent() {
   const searchParams = useSearchParams();
   const initialCategory = searchParams.get("category") || "All";
   const searchQuery = searchParams.get("q") || "";
@@ -191,5 +191,13 @@ export default function ProductsPage() {
         onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)}
       />
     </main>
+  );
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={<main className="min-h-screen bg-[#F5EFE6] flex items-center justify-center font-serif text-xl text-[#1E332D]">Loading...</main>}>
+      <ProductsContent />
+    </Suspense>
   );
 }
