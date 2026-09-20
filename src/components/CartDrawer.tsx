@@ -101,17 +101,21 @@ export default function CartDrawer({
                 key={`${item.product.id}-${item.size}-${item.color}-${idx}`}
                 className="flex gap-4 pb-6 border-b border-[#EBE6DC]"
               >
-                <img
-                  src={item.product.image}
-                  alt={item.product.name}
-                  className="w-20 h-24 object-cover border border-[#E0D9C8] bg-neutral-100"
-                />
+                <Link href={`/products/${item.product.id}`} onClick={() => setIsCartOpen(false)}>
+                  <img
+                    src={item.product.image}
+                    alt={item.product.name}
+                    className="w-20 h-24 object-cover border border-[#E0D9C8] bg-neutral-100 hover:opacity-90 transition-opacity"
+                  />
+                </Link>
                 <div className="flex-1 flex flex-col justify-between">
                   <div>
                     <div className="flex justify-between items-start">
-                      <h4 className="font-serif text-base font-medium text-[#1A1A1A]">
-                        {item.product.name}
-                      </h4>
+                      <Link href={`/products/${item.product.id}`} onClick={() => setIsCartOpen(false)}>
+                        <h4 className="font-serif text-base font-medium text-[#1A1A1A] hover:text-[#9A7B38] transition-colors">
+                          {item.product.name}
+                        </h4>
+                      </Link>
                       <button
                         onClick={() => removeFromCart(item.product.id, item.size, item.color)}
                         className="text-[#999] hover:text-red-600 transition-colors"
