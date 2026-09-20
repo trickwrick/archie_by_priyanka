@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, Suspense } from "react";
+import React, { useState, Suspense, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CustomFittingStudio from "@/components/CustomFittingStudio";
@@ -21,6 +21,19 @@ function ProductsContent() {
   const [isCustomFitModalOpen, setIsCustomFitModalOpen] = useState(false);
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
   const { addToCart, toggleWishlist, isInWishlist } = useShop();
+  const [dbProducts, setDbProducts] = useState<Product[]>(PRODUCTS);
+
+  useEffect(() => {
+    // Fetch real products from MongoDB
+    fetch('/api/products')
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          setDbProducts(data);
+        }
+      })
+      .catch((err) => console.error("Failed to load products:", err));
+  }, []);
 
   React.useEffect(() => {
     const cat = searchParams.get("category");
@@ -33,7 +46,7 @@ function ProductsContent() {
 
   const categories = ["All", "Monokinis", "Bikinis", "Mesh & Cutouts", "Resortwear"];
   
-  let filteredProducts = PRODUCTS;
+  let filteredProducts = dbProducts;
 
   if (selectedCategory !== "All") {
     filteredProducts = filteredProducts.filter((p) => p.category === selectedCategory);

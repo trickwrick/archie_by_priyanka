@@ -21,10 +21,6 @@ const GRID_ITEMS = [
   { id: "grid-6",  image: "/images/swimsuit_neon_lime.jpg",   title: "Riviera High-Waist Neon Lime Set",    aspect: "aspect-square",  size: "col-span-1" },
   { id: "grid-7",  image: "/images/insta_ombre_blue.jpg",     title: "Ocean Blue Ombre Gradient Monokini",  aspect: "aspect-square",  size: "col-span-1" },
   { id: "grid-8",  image: "/images/hero_beach_luxury.jpg",    title: "Bronze Metallic Criss-Cross Wrap",    aspect: "aspect-square",  size: "col-span-1" },
-  { id: "grid-9",  image: "/images/oye_luxury_hero.jpg",      title: "Summer 2026 Towel Wrap Editorial",    aspect: "aspect-square",  size: "col-span-1" },
-  { id: "grid-10", image: "/images/swimsuit_mesh_black.jpg",  title: "Sheer Panel High-Neck Silhouette",    aspect: "aspect-square",  size: "col-span-1" },
-  { id: "grid-11", image: "/images/insta_blue_plunge.jpg",    title: "Bespoke Resortwear & Cover-up",       aspect: "aspect-square",  size: "col-span-1" },
-  { id: "grid-12", image: "/images/swimsuit_ocean_blue.jpg",  title: "Mediterranean 24k Gold Accents",      aspect: "aspect-square",  size: "col-span-1" },
 ];
 
 const containerVariants = {

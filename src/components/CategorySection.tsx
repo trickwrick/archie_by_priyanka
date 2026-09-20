@@ -1,209 +1,157 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, ArrowLeft, Shirt, Sun, Scissors, Umbrella } from "lucide-react";
+import Link from "next/link";
 
 interface CategorySectionProps {
   onSelectCategory?: (category: string) => void;
   onOpenCustomFitModal: () => void;
 }
 
-interface CategoryItem {
-  id: string;
-  name: string;
-  categoryFilter: string;
-  tag: string;
-  subtitle: string;
-  count: string;
-  image: string;
-  isBespoke?: boolean;
-}
-
-const CATEGORIES: CategoryItem[] = [
-  {
-    id: "cat-onepiece",
-    name: "One-Piece & Monokinis",
-    categoryFilter: "Monokinis",
-    tag: "SCULPTURAL PLUNGE",
-    subtitle: "Sheer optical mesh, asymmetrical cutouts & flattering wraps",
-    count: "12 Styles",
-    image: "/images/swimsuit_mesh_black.jpg",
-  },
-  {
-    id: "cat-bikinis",
-    name: "Bikinis & Sets",
-    categoryFilter: "Bikinis",
-    tag: "24K GOLD HARDWARE",
-    subtitle: "High-waisted contour bottoms & supportive underwire tops",
-    count: "18 Styles",
-    image: "/images/swimsuit_ocean_blue.jpg",
-  },
-  {
-    id: "cat-resortwear",
-    name: "Resortwear & Covers",
-    categoryFilter: "Resortwear",
-    tag: "YACHT & BEACH CLUB",
-    subtitle: "Artisanal crochet cardigans, sarongs & dramatic sunhats",
-    count: "09 Styles",
-    image: "/images/insta_straw_hat.jpg",
-  },
-  {
-    id: "cat-bespoke",
-    name: "Custom Atelier",
-    categoryFilter: "Custom Fit",
-    tag: "MADE-TO-MEASURE",
-    subtitle: "Handcrafted in Mumbai to your exact 12 body measurements",
-    count: "Bespoke",
-    image: "/images/hero_beach_luxury.jpg",
-    isBespoke: true,
-  },
+const TABS = [
+  { id: "Monokinis", label: "MONOKINIS", icon: Shirt },
+  { id: "Bikinis", label: "BIKINIS", icon: Sun },
+  { id: "Mesh & Cutouts", label: "MESH", icon: Scissors },
+  { id: "Resortwear", label: "RESORT", icon: Umbrella },
 ];
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.65,
-      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
-    },
-  },
+const SUBCATEGORIES: Record<string, { name: string; image: string; link: string }[]> = {
+  "Monokinis": [
+    { name: "Wrap Monokinis", image: "/images/hero_beach_luxury.jpg", link: "/products?category=Monokinis" },
+    { name: "Plunge Monokinis", image: "/images/swimsuit_mesh_black.jpg", link: "/products?category=Monokinis" },
+    { name: "Cut-Out Monokinis", image: "/images/hero_beach_luxury.jpg", link: "/products?category=Monokinis" },
+    { name: "Halter Monokinis", image: "/images/swimsuit_mesh_black.jpg", link: "/products?category=Monokinis" },
+  ],
+  "Bikinis": [
+    { name: "High-Waist Bikinis", image: "/images/swimsuit_neon_lime.jpg", link: "/products?category=Bikinis" },
+    { name: "String Bikinis", image: "/images/swimsuit_ocean_blue.jpg", link: "/products?category=Bikinis" },
+    { name: "Bandeau Bikinis", image: "/images/swimsuit_neon_lime.jpg", link: "/products?category=Bikinis" },
+    { name: "Push-Up Bikinis", image: "/images/swimsuit_ocean_blue.jpg", link: "/products?category=Bikinis" },
+  ],
+  "Mesh & Cutouts": [
+    { name: "Sheer Paneling", image: "/images/swimsuit_mesh_black.jpg", link: "/products?category=Mesh%20%26%20Cutouts" },
+    { name: "Asymmetric Cutouts", image: "/images/hero_beach_luxury.jpg", link: "/products?category=Mesh%20%26%20Cutouts" },
+    { name: "Illusion Mesh", image: "/images/swimsuit_mesh_black.jpg", link: "/products?category=Mesh%20%26%20Cutouts" },
+  ],
+  "Resortwear": [
+    { name: "Beach Cover-ups", image: "/images/insta_straw_hat.jpg", link: "/products?category=Resortwear" },
+    { name: "Sarongs & Skirts", image: "/images/insta_straw_hat.jpg", link: "/products?category=Resortwear" },
+    { name: "Crochet Tops", image: "/images/insta_straw_hat.jpg", link: "/products?category=Resortwear" },
+  ]
 };
 
 export default function CategorySection({
   onSelectCategory,
-  onOpenCustomFitModal,
 }: CategorySectionProps) {
-  const handleCategoryClick = (category: CategoryItem) => {
-    if (category.isBespoke) {
-      onOpenCustomFitModal();
-      return;
-    }
+  const [activeTab, setActiveTab] = useState("Monokinis");
+  
+  const sliderItems = SUBCATEGORIES[activeTab] || [];
 
+  const handleTabChange = (tabId: string) => {
+    setActiveTab(tabId);
     if (onSelectCategory) {
-      onSelectCategory(category.categoryFilter);
-    }
-
-    const collectionsEl = document.getElementById("collections");
-    if (collectionsEl) {
-      collectionsEl.scrollIntoView({ behavior: "smooth" });
+      onSelectCategory(tabId);
     }
   };
 
   return (
-    <section id="categories" className="relative bg-[#FAF6F0] py-16 sm:py-20 lg:py-24 overflow-hidden">
-      {/* Subtle border lines */}
-      <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-[#C8A366]/30 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-[#C8A366]/30 to-transparent" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 lg:mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="flex items-center gap-2 text-[10px] sm:text-xs font-bold tracking-[0.45em] uppercase text-[#C8A366] mb-3">
-              <span className="w-8 h-px bg-[#C8A366] inline-block" />
-              CURATED SILHOUETTES
-            </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-[#1E332D] tracking-tight leading-tight">
-              Shop by <span className="italic font-normal text-[#C8A366]">Category</span>
-            </h2>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="flex items-center gap-3"
-          >
-            <p className="text-xs text-[#666] max-w-sm font-light hidden sm:block">
-              Each piece is meticulously engineered in our Mumbai atelier with premium Italian regenerated fabrics.
-            </p>
-            <a
-              href="#collections"
-              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#1E332D] hover:text-[#C8A366] transition-colors group shrink-0"
-            >
-              View All
-              <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-            </a>
-          </motion.div>
+    <section className="bg-[#FAF6F0] py-16 sm:py-24 overflow-hidden relative border-y border-[#E0D9C8]">
+      <div className="max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Title */}
+        <div className="text-center mb-10">
+          <h2 className="font-serif text-3xl md:text-4xl text-[#1E332D] mb-4">Shop by Category</h2>
+          <div className="w-12 h-px bg-[#C8A366] mx-auto" />
         </div>
 
-        {/* 4 Category Cards Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6"
-        >
-          {CATEGORIES.map((cat, idx) => (
-            <motion.div
-              key={cat.id}
-              variants={cardVariants}
-              onClick={() => handleCategoryClick(cat)}
-              className="group relative cursor-pointer overflow-hidden rounded-xs bg-[#EDE8DF] aspect-4/5 shadow-xs transition-all duration-500 hover:shadow-xl"
-            >
-              {/* Image */}
-              <img
-                src={cat.image}
-                alt={cat.name}
-                className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-108"
-              />
-
-              {/* Gradient Overlays */}
-              <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/25 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
-              <div className="absolute inset-0 border border-transparent group-hover:border-[#C8A366]/60 transition-colors duration-500 z-10 pointer-events-none" />
-
-              {/* Top Tag & Count */}
-              <div className="absolute top-4 inset-x-4 flex items-center justify-between z-10">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white/90 backdrop-blur-sm text-[9px] font-black uppercase tracking-[0.25em] text-[#1E332D]">
-                  {cat.isBespoke && <Sparkles className="w-2.5 h-2.5 text-[#C8A366]" />}
-                  {cat.tag}
+        {/* Tabs Navigation - Pill Style */}
+        <div className="flex justify-center items-center gap-4 md:gap-6 mb-16 flex-wrap">
+          {TABS.map((tab) => {
+            const Icon = tab.icon;
+            const isActive = activeTab === tab.id;
+            
+            return (
+              <button
+                key={tab.id}
+                onClick={() => handleTabChange(tab.id)}
+                className={`flex items-center gap-2 px-6 py-3 rounded-full transition-all border ${
+                  isActive 
+                    ? "bg-[#1E332D] text-white border-[#1E332D] shadow-md" 
+                    : "bg-transparent text-[#1E332D] border-[#E0D9C8] hover:border-[#1E332D]"
+                }`}
+              >
+                <Icon className={`w-4 h-4`} strokeWidth={2} />
+                <span className="text-[10px] font-bold tracking-widest uppercase">
+                  {tab.label}
                 </span>
-                <span className="text-[10px] font-bold text-white/70 tracking-widest uppercase">
-                  {cat.count}
-                </span>
-              </div>
+              </button>
+            );
+          })}
+        </div>
 
-              {/* Bottom Content */}
-              <div className="absolute inset-x-0 bottom-0 p-5 z-10 flex flex-col justify-end">
-                <span className="text-[10px] font-mono text-[#C8A366] tracking-[0.2em] mb-1">
-                  0{idx + 1}
-                </span>
-                <h3 className="font-serif text-xl sm:text-2xl text-white font-medium mb-1.5 group-hover:text-[#F5EFE6] transition-colors">
-                  {cat.name}
-                </h3>
-                <p className="text-[11px] text-white/75 font-light line-clamp-2 mb-4">
-                  {cat.subtitle}
-                </p>
+        {/* Carousel / Cards */}
+        <div className="relative group">
+          {/* Slider Arrows */}
+          <button className="absolute left-0 top-1/2 -translate-y-1/2 -ml-2 lg:-ml-6 w-12 h-12 rounded-full bg-white border border-[#E0D9C8] hidden items-center justify-center text-[#1E332D] shadow-sm hover:shadow-md transition-all z-20 md:flex hover:text-[#C8A366]">
+            <ArrowLeft className="w-5 h-5" />
+          </button>
+          
+          <button className="absolute right-0 top-1/2 -translate-y-1/2 -mr-2 lg:-mr-6 w-12 h-12 rounded-full bg-white border border-[#E0D9C8] hidden items-center justify-center text-[#1E332D] shadow-sm hover:shadow-md transition-all z-20 md:flex hover:text-[#C8A366]">
+            <ArrowRight className="w-5 h-5" />
+          </button>
 
-                {/* Animated CTA Button */}
-                <div className="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.25em] uppercase text-white group-hover:text-[#C8A366] transition-all">
-                  <span>{cat.isBespoke ? "BOOK BESPOKE" : "EXPLORE"}</span>
-                  <div className="w-5 h-px bg-white group-hover:bg-[#C8A366] group-hover:w-8 transition-all duration-300" />
-                  <ArrowRight className="w-3 h-3 -ml-1 transition-transform duration-300 group-hover:translate-x-1" />
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+          <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 md:gap-8 pb-12 pt-4 px-4 sm:px-0">
+            <AnimatePresence mode="wait">
+              {sliderItems.map((subcat, idx) => (
+                <motion.div
+                  key={`${activeTab}-${subcat.name}-${idx}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="shrink-0 w-65 sm:w-75 md:w-85 snap-center group/card"
+                >
+                  <Link href={subcat.link} className="block relative cursor-pointer outline-none">
+                    {/* The Arch Shape Card */}
+                    <div className="overflow-hidden aspect-3/4 bg-neutral-200 rounded-t-full rounded-b-2xl relative shadow-lg transition-transform duration-700 group-hover/card:-translate-y-3">
+                      <img
+                        src={subcat.image}
+                        alt={subcat.name}
+                        className="w-full h-full object-cover transition-transform duration-1000 group-hover/card:scale-110"
+                      />
+                      {/* Inner border for elegant touch */}
+                      <div className="absolute inset-2 border border-white/30 rounded-t-full rounded-b-xl pointer-events-none" />
+                    </div>
+                    
+                    {/* Floating Text Info */}
+                    <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-11/12 bg-white p-4 shadow-xl rounded-xl text-center transition-transform duration-500 group-hover/card:-translate-y-2 group-hover/card:shadow-2xl">
+                      <h3 className="text-[#1E332D] text-sm md:text-base font-serif font-medium truncate mb-1">
+                        {subcat.name}
+                      </h3>
+                      <div className="flex items-center justify-center gap-2 text-[10px] font-bold uppercase tracking-widest text-[#C8A366] group-hover/card:text-[#1E332D] transition-colors">
+                        Explore <ArrowRight className="w-3 h-3" />
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
+        </div>
+
+        {/* View All Button */}
+        <div className="mt-12 flex justify-center">
+          <Link
+            href={`/products?category=${encodeURIComponent(activeTab === 'MESH' ? 'Mesh & Cutouts' : activeTab === 'RESORT' ? 'Resortwear' : activeTab)}`}
+            className="bg-[#1E332D] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-widest hover:bg-[#C8A366] transition-colors flex items-center gap-3 group"
+          >
+            Shop All {activeTab}
+            <div className="w-6 h-px bg-white group-hover:w-8 transition-all" />
+          </Link>
+        </div>
+
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import CategorySection from "@/components/CategorySection";
@@ -9,12 +9,14 @@ import EditorialSection from "@/components/EditorialSection";
 import BrandPromises from "@/components/BrandPromises";
 import InstagramShop from "@/components/InstagramShop";
 import FullWidthEditorial from "@/components/FullWidthEditorial";
-import ShopBySilhouette from "@/components/ShopBySilhouette";
+import NewArrivalsCarousel from "@/components/NewArrivalsCarousel";
 import CustomFittingStudio from "@/components/CustomFittingStudio";
 import CartDrawer from "@/components/CartDrawer";
 import QuickViewModal from "@/components/QuickViewModal";
 import Footer from "@/components/Footer";
-import { Product } from "@/data/products";
+import StickyProductGrid from "@/components/StickyProductGrid";
+import Preloader from "@/components/Preloader";
+import { PRODUCTS, Product } from "@/data/products";
 import { useShop } from "@/context/ShopContext";
 
 export default function Home() {
@@ -22,9 +24,25 @@ export default function Home() {
   const [isCustomFitModalOpen, setIsCustomFitModalOpen] = useState<boolean>(false);
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [dbProducts, setDbProducts] = useState<Product[]>(PRODUCTS);
+
+  useEffect(() => {
+    // Fetch real products from MongoDB
+    fetch('/api/products')
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          setDbProducts(data);
+        }
+      })
+      .catch((err) => console.error("Failed to load products:", err));
+  }, []);
 
   return (
     <main className="min-h-screen bg-[#F5EFE6] text-[#1E332D] flex flex-col font-sans selection:bg-[#1E332D] selection:text-white m-0 p-0">
+      {/* Cinematic Intro Preloader */}
+      <Preloader />
+
       {/* Hidden trigger button for FullWidthEditorial CTA */}
       <button
         id="custom-fit-trigger"
@@ -41,6 +59,13 @@ export default function Home() {
       {/* Hero Slider */}
       <Hero onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
 
+      {/* New Arrivals Video Carousel */}
+      <NewArrivalsCarousel
+        products={dbProducts}
+        onQuickView={(p) => setQuickViewProduct(p)}
+        onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)}
+      />
+
       {/* Shop By Category Section */}
       <CategorySection
         onSelectCategory={(cat) => setSelectedCategory(cat)}
@@ -49,9 +74,7 @@ export default function Home() {
 
       {/* Featured Product Catalog */}
       <FeaturedProducts
-        externalCategory={selectedCategory}
-        onCategoryChange={setSelectedCategory}
-        onAddToCart={addToCart}
+        products={dbProducts}
         onQuickView={(p) => setQuickViewProduct(p)}
         onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)}
       />
@@ -68,11 +91,10 @@ export default function Home() {
       {/* Full-Width B&W Parallax Editorial Banner */}
       <FullWidthEditorial />
 
-      {/* Shop By Silhouette */}
-      <ShopBySilhouette
-        onAddToCart={addToCart}
-        onQuickView={(p) => setQuickViewProduct(p)}
-        onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)}
+      {/* Sticky Banner & Scrolling Grid */}
+      <StickyProductGrid 
+        products={dbProducts}
+        onQuickView={(p) => setQuickViewProduct(p)} 
       />
 
       {/* Footer */}

@@ -22,7 +22,7 @@
     color: #1E332D;
     background-color: #F5EFE6;
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 }
 

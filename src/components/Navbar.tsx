@@ -58,17 +58,23 @@ export default function Navbar({
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-3 items-center">
             
-            {/* Left: Navigation Links & Mobile Menu Toggle */}
-            <div className="flex items-center justify-start gap-8">
+            {/* Left: Brand Logo */}
+            <div className="flex items-center justify-start">
               {/* Mobile Menu Icon */}
               <button
                 onClick={() => setMobileMenuOpen(true)}
-                className="lg:hidden transition-colors text-white hover:text-[#C8A366]"
+                className="lg:hidden transition-colors text-white hover:text-[#C8A366] mr-4"
                 aria-label="Open Mobile Menu"
               >
                 <Menu className="w-6 h-6 stroke-1" />
               </button>
+              <Link href="/">
+                <Logo light={true} compact={isScrolled} />
+              </Link>
+            </div>
 
+            {/* Center: Navigation Links */}
+            <div className="flex items-center justify-center gap-8">
               {/* Desktop Links */}
               <div className="hidden lg:flex items-center space-x-8 text-[11px] font-bold tracking-[0.25em] uppercase text-white">
                 <Link href="/products" className="hover:text-[#C8A366] transition-colors">
@@ -80,17 +86,10 @@ export default function Navbar({
                 <Link href="/products?category=Bikinis" className="hover:text-[#C8A366] transition-colors">
                   BIKINIS
                 </Link>
-                <button onClick={onOpenCustomFitModal} className="hover:text-[#C8A366] transition-colors text-[#C8A366]">
+                <button onClick={onOpenCustomFitModal} className="hover:text-[#C8A366] transition-colors">
                   CUSTOM FIT
                 </button>
               </div>
-            </div>
-
-            {/* Center: Brand Logo */}
-            <div className="flex items-center justify-center">
-              <Link href="/">
-                <Logo light={true} compact={isScrolled} />
-              </Link>
             </div>
 
             {/* Right: Utility Icons */}

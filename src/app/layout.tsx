@@ -60,6 +60,8 @@ export const metadata: Metadata = {
   },
 };
 
+import SmoothScrolling from "@/components/SmoothScrolling";
+
 export default function RootLayout({
   children,
 }: {
@@ -68,9 +70,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cormorant.variable} ${jakarta.variable} scroll-smooth`}>
       <body className="font-sans bg-[#F5EFE6] text-[#1E332D] antialiased selection:bg-[#1E332D] selection:text-[#F5EFE6] m-0 p-0">
-        <ShopProvider>
-          {children}
-        </ShopProvider>
+        <SmoothScrolling>
+          <ShopProvider>
+            {children}
+          </ShopProvider>
+        </SmoothScrolling>
       </body>
     </html>
   );
