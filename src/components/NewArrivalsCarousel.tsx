@@ -50,10 +50,9 @@ export default function NewArrivalsCarousel({
               loop
               muted
               playsInline
-              poster="/images/hero_beach_luxury.jpg"
               className="absolute inset-0 w-full h-full object-cover opacity-70"
             >
-              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+              <source src="/Video-54575.mp4" type="video/mp4" />
             </video>
             
             <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent" />
