@@ -137,16 +137,10 @@ export default function QuickViewModal({
                   <button
                     key={s}
                     onClick={() => {
-                      if (s === "Custom Fit") {
-                        onClose();
-                      } else {
-                        setSelectedSize(s);
-                      }
+                      setSelectedSize(s);
                     }}
                     className={`text-xs font-semibold px-3 py-2 transition-all ${
-                      s === "Custom Fit"
-                        ? "bg-[#9A7B38]/10 text-[#9A7B38] border border-[#9A7B38]"
-                        : selectedSize === s
+                      selectedSize === s
                         ? "bg-[#1A1A1A] text-white"
                         : "bg-[#F3EFE6] text-[#444] hover:bg-[#EAE4D6]"
                     }`}

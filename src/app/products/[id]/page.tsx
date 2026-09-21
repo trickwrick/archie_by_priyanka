@@ -160,8 +160,6 @@ export default function ProductDetailsPage() {
                     className={`py-3 text-xs font-bold tracking-widest uppercase border transition-all ${
                       selectedSize === size
                         ? "border-[#1E332D] bg-[#1E332D] text-white"
-                        : size === "Custom Fit"
-                        ? "border-[#C8A366] text-[#C8A366] hover:bg-[#C8A366] hover:text-white col-span-4 mt-2"
                         : "border-[#D0C8B8] text-[#1E332D] hover:border-[#1E332D]"
                     }`}
                   >

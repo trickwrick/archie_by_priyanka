@@ -27,7 +27,7 @@ export const PRODUCTS: Product[] = [
       { name: "Bronze Espresso", hex: "#5c3d2e" },
       { name: "Onyx Black", hex: "#111111" },
     ],
-    sizes: ["XS", "S", "M", "L", "Custom Fit"],
+    sizes: ["XS", "S", "M", "L"],
     description:
       "Handcrafted criss-cross wrap monokini in metallic shimmer lycra. Tailored to accentuate curves with high-leg cuts and seamless luxury stretch.",
     fabricDetails: "80% Italian Micro-Polyamide, 20% Elastane. UV 50+ Protection, Chlorine Resistant.",
@@ -45,7 +45,7 @@ export const PRODUCTS: Product[] = [
       { name: "Midnight Black", hex: "#0c0c0c" },
       { name: "Pure Ivory", hex: "#faf6f0" },
     ],
-    sizes: ["XS", "S", "M", "L", "Custom Fit"],
+    sizes: ["XS", "S", "M", "L"],
     description:
       "Sculptural plunge high-neck monokini featuring optical sheer mesh paneling and double-lined contour support.",
     fabricDetails: "Premium Sheer Italian Mesh & Matt Lycra. Double Layered Bust Support.",
@@ -62,7 +62,7 @@ export const PRODUCTS: Product[] = [
       { name: "Neon Lime", hex: "#a6e52c" },
       { name: "Sunset Coral", hex: "#ff6f61" },
     ],
-    sizes: ["XS", "S", "M", "L", "Custom Fit"],
+    sizes: ["XS", "S", "M", "L"],
     description:
       "Vibrant high-waist ribbed bikini set featuring supportive underbust bands and cheek contour shaping.",
     fabricDetails: "Textured Ribbed Swim Fabric, Quick-Dry Finish with Gold Hardware.",
@@ -80,7 +80,7 @@ export const PRODUCTS: Product[] = [
       { name: "Mediterranean Royal Blue", hex: "#0047ab" },
       { name: "Emerald Green", hex: "#005a36" },
     ],
-    sizes: ["XS", "S", "M", "L", "Custom Fit"],
+    sizes: ["XS", "S", "M", "L"],
     description:
       "Structured push-up bikini with handcrafted 24k gold-plated buckle accents and adjustable shoulder straps.",
     fabricDetails: "High Compression Swim Satin, Anti-Tarnish Gold-Plated Clasp.",
