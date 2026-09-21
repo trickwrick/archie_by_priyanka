@@ -72,7 +72,7 @@ export default function Navbar({
                 <Menu className="w-6 h-6 stroke-1" />
               </button>
               <Link href="/">
-                <Logo light={true} compact={isScrolled} />
+                <Logo light={true} compact={isScrolled || !isHome} />
               </Link>
             </div>
 
