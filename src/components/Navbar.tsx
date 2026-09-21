@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Search, ShoppingBag, Heart, Menu, X, Sparkles, User } from "lucide-react";
 import Logo from "@/components/Logo";
 import { useShop } from "@/context/ShopContext";
@@ -20,6 +20,9 @@ export default function Navbar({
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
+  const pathname = usePathname();
+  
+  const isHome = pathname === "/";
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,7 +53,7 @@ export default function Navbar({
       {/* 2. Main Navigation */}
       <nav
         className={`w-full transition-all duration-300 ease-in-out ${
-          isScrolled
+          isScrolled || !isHome
             ? "bg-[#1E332D]/95 backdrop-blur-md shadow-md py-3"
             : "bg-linear-to-b from-black/50 to-transparent py-4 md:py-6"
         }`}
