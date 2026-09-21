@@ -39,44 +39,9 @@ export default function Footer({ onOpenCustomFitModal }: FooterProps) {
   return (
     <footer className="bg-[#1E332D] text-white pt-20 pb-10 border-t border-[#C8A366]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Newsletter & Atelier Box */}
+        {/* Top Columns & Newsletter Box */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 pb-16 border-b border-[#C8A366]/30">
-          <div>
-            <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.25em] text-[#C8A366] uppercase mb-3">
-              <Sparkles className="w-4 h-4 text-[#C8A366]" />
-              THE PRIVATE ATELIER CLUB
-            </div>
-            <h3 className="font-serif text-3xl font-normal tracking-[0.15em] text-white uppercase mb-3">
-              ARCHIE&apos;S BY PRIYANKA
-            </h3>
-            <p className="text-xs text-white/70 font-light leading-relaxed max-w-md mb-6">
-              Subscribe for exclusive previews of Priyanka&apos;s limited-edition resortwear, private fitting sessions, and VIP trunk show invitations.
-            </p>
-
-            {!subscribed ? (
-              <form onSubmit={handleSubscribe} className="flex gap-2 max-w-md">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email address..."
-                  required
-                  className="flex-1 px-4 py-3 bg-white/10 border border-[#C8A366]/40 text-xs text-white placeholder:opacity-50 focus:outline-none focus:ring-1 focus:ring-[#C8A366]"
-                />
-                <button
-                  type="submit"
-                  className="px-6 py-3 bg-[#C8A366] text-[#1E332D] font-bold text-xs uppercase tracking-widest hover:bg-white transition-colors flex items-center gap-2"
-                >
-                  Join <Send className="w-3.5 h-3.5" />
-                </button>
-              </form>
-            ) : (
-              <div className="p-4 bg-white/10 border border-[#C8A366] text-xs text-[#C8A366] font-semibold max-w-md">
-                Welcome to the VIP Circle! You will receive our next collection lookbook directly.
-              </div>
-            )}
-          </div>
-
+          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-xs text-white/70">
             {/* Customer Care */}
             <div>
@@ -178,6 +143,42 @@ export default function Footer({ onOpenCustomFitModal }: FooterProps) {
                 </li>
               </ul>
             </div>
+          </div>
+
+          <div className="lg:pl-12">
+            <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.25em] text-[#C8A366] uppercase mb-3">
+              <Sparkles className="w-4 h-4 text-[#C8A366]" />
+              THE PRIVATE ATELIER CLUB
+            </div>
+            <h3 className="font-serif text-3xl font-normal tracking-[0.15em] text-white uppercase mb-3">
+              ARCHIE&apos;S BY PRIYANKA
+            </h3>
+            <p className="text-xs text-white/70 font-light leading-relaxed max-w-md mb-6">
+              Subscribe for exclusive previews of Priyanka&apos;s limited-edition resortwear, private fitting sessions, and VIP trunk show invitations.
+            </p>
+
+            {!subscribed ? (
+              <form onSubmit={handleSubscribe} className="flex gap-2 max-w-md">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email address..."
+                  required
+                  className="flex-1 px-4 py-3 bg-white/10 border border-[#C8A366]/40 text-xs text-white placeholder:opacity-50 focus:outline-none focus:ring-1 focus:ring-[#C8A366]"
+                />
+                <button
+                  type="submit"
+                  className="px-6 py-3 bg-[#C8A366] text-[#1E332D] font-bold text-xs uppercase tracking-widest hover:bg-white transition-colors flex items-center gap-2"
+                >
+                  Join <Send className="w-3.5 h-3.5" />
+                </button>
+              </form>
+            ) : (
+              <div className="p-4 bg-white/10 border border-[#C8A366] text-xs text-[#C8A366] font-semibold max-w-md">
+                Welcome to the VIP Circle! You will receive our next collection lookbook directly.
+              </div>
+            )}
           </div>
         </div>
 
