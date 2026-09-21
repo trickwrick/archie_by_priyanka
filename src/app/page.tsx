@@ -13,6 +13,7 @@ import NewArrivalsCarousel from "@/components/NewArrivalsCarousel";
 import CustomFittingStudio from "@/components/CustomFittingStudio";
 import CartDrawer from "@/components/CartDrawer";
 import QuickViewModal from "@/components/QuickViewModal";
+import HomeFAQ from "@/components/HomeFAQ";
 import Footer from "@/components/Footer";
 import StickyProductGrid from "@/components/StickyProductGrid";
 import Preloader from "@/components/Preloader";
@@ -96,6 +97,9 @@ export default function Home() {
         products={dbProducts}
         onQuickView={(p) => setQuickViewProduct(p)} 
       />
+
+      {/* Home FAQs */}
+      <HomeFAQ />
 
       {/* Footer */}
       <Footer onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
