@@ -75,9 +75,9 @@ export default function BrandPromises() {
           className="text-center mb-16"
         >
           <span className="flex items-center justify-center gap-3 text-xs font-black tracking-[0.5em] uppercase text-[#C8A366] mb-5">
-            <span className="w-12 h-[2px] bg-[#C8A366] inline-block" />
+            <span className="w-12 h-0.5 bg-[#C8A366] inline-block" />
             THE ARCHIE PROMISE
-            <span className="w-12 h-[2px] bg-[#C8A366] inline-block" />
+            <span className="w-12 h-0.5 bg-[#C8A366] inline-block" />
           </span>
           <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light text-[#1E332D] tracking-tight leading-[1.05]">
             Designed Around
@@ -107,7 +107,7 @@ export default function BrandPromises() {
                 </div>
 
                 {/* Gold accent line */}
-                <div className="w-8 h-[2px] bg-[#C8A366] mb-4 group-hover:w-12 transition-all duration-400" />
+                <div className="w-8 h-0.5 bg-[#C8A366] mb-4 group-hover:w-12 transition-all duration-400" />
 
                 <h3 className="font-serif text-xl font-bold text-[#1E332D] mb-3">
                   {promise.title}
