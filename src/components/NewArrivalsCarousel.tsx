@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { Product } from "@/data/products";
 import { Heart, ShoppingBag, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
