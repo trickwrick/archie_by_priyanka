@@ -78,6 +78,50 @@ export default function Footer({ onOpenCustomFitModal }: FooterProps) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-xs text-white/70">
+            {/* Customer Care */}
+            <div>
+              <h4 className="font-serif text-base font-medium text-white mb-4 tracking-wider uppercase">
+                Customer Care
+              </h4>
+              <ul className="space-y-2.5">
+                <li>
+                  <Link href="/shipping" className="hover:text-[#C8A366] transition-colors">
+                    Shipping / Track Your Order
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/returns" className="hover:text-[#C8A366] transition-colors">
+                    Return & Refund Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/returns" className="hover:text-[#C8A366] transition-colors">
+                    Cancellation / Return Order
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/terms" className="hover:text-[#C8A366] transition-colors">
+                    Terms & Conditions
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/privacy" className="hover:text-[#C8A366] transition-colors">
+                    Privacy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/faq" className="hover:text-[#C8A366] transition-colors">
+                    FAQ
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="hover:text-[#C8A366] transition-colors">
+                    Contact Us
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
             {/* The Brand */}
             <div>
               <h4 className="font-serif text-base font-medium text-white mb-4 tracking-wider uppercase">
@@ -130,50 +174,6 @@ export default function Footer({ onOpenCustomFitModal }: FooterProps) {
                 <li>
                   <Link href="/products?category=Resortwear" className="hover:text-[#C8A366] transition-colors">
                     Luxe Sarongs & Cover-ups
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Customer Care */}
-            <div>
-              <h4 className="font-serif text-base font-medium text-white mb-4 tracking-wider uppercase">
-                Customer Care
-              </h4>
-              <ul className="space-y-2.5">
-                <li>
-                  <Link href="/shipping" className="hover:text-[#C8A366] transition-colors">
-                    Shipping / Track Your Order
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/returns" className="hover:text-[#C8A366] transition-colors">
-                    Return & Refund Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/returns" className="hover:text-[#C8A366] transition-colors">
-                    Cancellation / Return Order
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/terms" className="hover:text-[#C8A366] transition-colors">
-                    Terms & Conditions
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/privacy" className="hover:text-[#C8A366] transition-colors">
-                    Privacy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/faq" className="hover:text-[#C8A366] transition-colors">
-                    FAQ
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="hover:text-[#C8A366] transition-colors">
-                    Contact Us
                   </Link>
                 </li>
               </ul>
