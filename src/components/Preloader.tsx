@@ -5,13 +5,23 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function Preloader() {
   const [isLoading, setIsLoading] = useState(true);
+  const [hasSeen, setHasSeen] = useState(false);
 
   useEffect(() => {
+    // Check if the user has already seen the preloader in this session
+    const seen = sessionStorage.getItem("hasSeenPreloader");
+    if (seen) {
+      setHasSeen(true);
+      setIsLoading(false);
+      return;
+    }
+
     // Disable scroll while loading
     document.body.style.overflow = "hidden";
     
     const timer = setTimeout(() => {
       setIsLoading(false);
+      sessionStorage.setItem("hasSeenPreloader", "true");
       document.body.style.overflow = ""; // restore scroll
     }, 2200); // 2.2s cinematic load
 
@@ -20,6 +30,9 @@ export default function Preloader() {
       document.body.style.overflow = "";
     };
   }, []);
+
+  // If already seen, don't render anything (prevents the exit animation from playing)
+  if (hasSeen) return null;
 
   return (
     <AnimatePresence>
