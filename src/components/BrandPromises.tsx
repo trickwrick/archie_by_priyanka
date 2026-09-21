@@ -74,15 +74,15 @@ export default function BrandPromises() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <span className="flex items-center gap-3 text-[10px] font-bold tracking-[0.5em] uppercase text-[#C8A366] mb-5">
-            <span className="w-8 h-px bg-[#C8A366] inline-block" />
+          <span className="flex items-center justify-center gap-3 text-xs font-black tracking-[0.5em] uppercase text-[#C8A366] mb-5">
+            <span className="w-12 h-[2px] bg-[#C8A366] inline-block" />
             THE ARCHIE PROMISE
-            <span className="w-8 h-px bg-[#C8A366] inline-block" />
+            <span className="w-12 h-[2px] bg-[#C8A366] inline-block" />
           </span>
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light text-[#1E332D] tracking-tight leading-[1.05]">
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-7xl font-bold text-[#1E332D] tracking-tight leading-[1.1] drop-shadow-sm">
             Designed Around
             <br />
-            <em className="text-[#9A7B38]">You</em>
+            <em className="text-[#C8A366] italic drop-shadow-md">You</em>
           </h2>
         </motion.div>
 
@@ -99,20 +99,20 @@ export default function BrandPromises() {
               <motion.div
                 key={promise.title}
                 variants={itemVariants}
-                className="group bg-white/60 hover:bg-white border border-[#D8CEBC] hover:border-[#C8A366]/50 p-8 lg:p-9 transition-all duration-400 hover:shadow-sm"
+                className="group bg-white/60 hover:bg-white border border-[#D8CEBC] hover:border-[#C8A366] p-8 lg:p-9 transition-all duration-400 hover:shadow-lg rounded-xl"
               >
                 {/* Icon box */}
-                <div className="w-11 h-11 flex items-center justify-center border border-[#C8A366]/40 bg-[#F5EFE6] mb-6 group-hover:border-[#C8A366] group-hover:bg-[#C8A366]/10 transition-all duration-300">
-                  <Icon className="w-5 h-5 text-[#9A7B38]" strokeWidth={1.5} />
+                <div className="w-12 h-12 flex items-center justify-center border-2 border-[#C8A366]/40 bg-[#F5EFE6] rounded-full mb-6 group-hover:border-[#C8A366] group-hover:bg-[#C8A366]/20 transition-all duration-300 shadow-sm">
+                  <Icon className="w-6 h-6 text-[#9A7B38]" strokeWidth={2} />
                 </div>
 
                 {/* Gold accent line */}
-                <div className="w-6 h-px bg-[#C8A366] mb-4 group-hover:w-10 transition-all duration-400" />
+                <div className="w-8 h-[2px] bg-[#C8A366] mb-4 group-hover:w-12 transition-all duration-400" />
 
-                <h3 className="font-serif text-lg font-medium text-[#1E332D] mb-2.5">
+                <h3 className="font-serif text-xl font-bold text-[#1E332D] mb-3">
                   {promise.title}
                 </h3>
-                <p className="text-sm text-[#5A6B65] font-light leading-relaxed">
+                <p className="text-sm text-[#5A6B65] font-medium leading-relaxed">
                   {promise.desc}
                 </p>
               </motion.div>
@@ -125,18 +125,18 @@ export default function BrandPromises() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="grid grid-cols-3 gap-8 mt-16 pt-14 border-t border-[#C8A366]/30 text-center"
+          className="grid grid-cols-3 gap-8 mt-20 pt-16 border-t-2 border-[#C8A366]/40 text-center"
         >
           {[
             { value: "500+", label: "Pieces Crafted" },
             { value: "100%", label: "Custom Fit Guarantee" },
             { value: "4.9★", label: "Customer Rating" },
           ].map((stat) => (
-            <div key={stat.label}>
-              <div className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-[#9A7B38] mb-2">
+            <div key={stat.label} className="flex flex-col items-center p-6 bg-white/40 rounded-2xl border border-white/60 shadow-sm hover:shadow-md transition-shadow">
+              <div className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#C8A366] mb-3 drop-shadow-md">
                 {stat.value}
               </div>
-              <div className="text-[10px] font-bold tracking-[0.35em] uppercase text-[#7A8D87]">
+              <div className="text-xs sm:text-sm font-black tracking-[0.3em] uppercase text-[#1E332D]">
                 {stat.label}
               </div>
             </div>
