@@ -84,7 +84,7 @@ export default function ProductDetailsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#F5EFE6] text-[#1E332D] flex flex-col font-sans pt-56">
+    <main className="min-h-screen bg-[#F5EFE6] text-[#1E332D] flex flex-col font-sans pt-28">
       <Navbar onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
 
       <div className="flex-1 max-w-7xl mx-auto w-full px-6 lg:px-12 py-8">
