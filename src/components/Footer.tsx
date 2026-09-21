@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { Send, Heart, Sparkles, ShieldCheck, Truck, Lock } from "lucide-react";
-import { FaCcVisa, FaCcMastercard, FaCcAmex, FaCcPaypal, FaCcApplePay } from "react-icons/fa";
 import Link from "next/link";
 
 const InstagramIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
@@ -199,13 +198,7 @@ export default function Footer({ onOpenCustomFitModal }: FooterProps) {
             <p className="text-center md:text-right">
               &copy; {new Date().getFullYear()} Archie&apos;s by Priyanka. All rights reserved.
             </p>
-            <div className="flex items-center gap-2 text-white/70" title="Accepted Payment Methods">
-              <FaCcVisa className="w-8 h-8 hover:text-white transition-colors" />
-              <FaCcMastercard className="w-8 h-8 hover:text-white transition-colors" />
-              <FaCcAmex className="w-8 h-8 hover:text-white transition-colors" />
-              <FaCcPaypal className="w-8 h-8 hover:text-white transition-colors" />
-              <FaCcApplePay className="w-8 h-8 hover:text-white transition-colors" />
-            </div>
+            <img src="/payment-icons.png" alt="Accepted Payment Methods" className="h-7 md:h-8 opacity-90 hover:opacity-100 transition-opacity" />
           </div>
         </div>
       </div>
