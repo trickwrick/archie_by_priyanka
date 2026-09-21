@@ -17,6 +17,7 @@ export default function ProductDetailsPage() {
   const id = params.id as string;
   const [product, setProduct] = useState<Product | null>(null);
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   
   const [selectedSize, setSelectedSize] = useState<string>("");
   const [selectedColor, setSelectedColor] = useState<string>("");
@@ -25,26 +26,45 @@ export default function ProductDetailsPage() {
   const { addToCart, toggleWishlist, isInWishlist } = useShop();
 
   useEffect(() => {
-    const p = PRODUCTS.find((p) => p.id === id);
-    if (p) {
-      setProduct(p);
-      setSelectedSize(p.sizes[0]);
-      setSelectedColor(p.colors[0].name);
+    // Fetch all products to find the current one and related ones
+    fetch('/api/products')
+      .then(res => res.json())
+      .then((data: Product[]) => {
+        if (!Array.isArray(data)) return;
+        
+        const p = data.find((item) => item.id === id);
+        if (p) {
+          setProduct(p);
+          setSelectedSize(p.sizes[0]);
+          setSelectedColor(p.colors[0].name);
 
-      const related = PRODUCTS.filter((item) => item.category === p.category && item.id !== p.id)
-        .sort(() => 0.5 - Math.random())
-        .slice(0, 4);
-      
-      if (related.length < 4) {
-        const more = PRODUCTS.filter((item) => item.id !== p.id && !related.find(r => r.id === item.id))
-          .sort(() => 0.5 - Math.random())
-          .slice(0, 4 - related.length);
-        setRelatedProducts([...related, ...more]);
-      } else {
-        setRelatedProducts(related);
-      }
-    }
+          const related = data.filter((item) => item.category === p.category && item.id !== p.id)
+            .sort(() => 0.5 - Math.random())
+            .slice(0, 4);
+          
+          if (related.length < 4) {
+            const more = data.filter((item) => item.id !== p.id && !related.find(r => r.id === item.id))
+              .sort(() => 0.5 - Math.random())
+              .slice(0, 4 - related.length);
+            setRelatedProducts([...related, ...more]);
+          } else {
+            setRelatedProducts(related);
+          }
+        }
+      })
+      .catch(err => console.error("Failed to load product details:", err))
+      .finally(() => setIsLoading(false));
   }, [id]);
+
+  if (isLoading) {
+    return (
+      <main className="min-h-screen bg-[#F5EFE6] flex items-center justify-center">
+        <div className="text-center">
+          <p className="font-serif text-xl text-[#1E332D]">Loading product details...</p>
+        </div>
+      </main>
+    );
+  }
 
   if (!product) {
     return (
