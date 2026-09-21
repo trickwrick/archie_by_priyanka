@@ -26,7 +26,7 @@ export default function DashboardLayout({
   return (
     <div className="min-h-screen flex bg-[#FDFBF7]">
       {/* Sidebar */}
-      <aside className="w-64 bg-[#997451] text-white flex flex-col transition-all duration-300 shrink-0">
+      <aside className="w-64 bg-[#997451] text-white flex flex-col transition-all duration-300 shrink-0 h-screen sticky top-0">
         <div className="p-6 border-b border-white/10 flex justify-center">
           <Link href="/admin">
             <Logo light={true} compact={true} />
@@ -62,9 +62,9 @@ export default function DashboardLayout({
       </aside>
 
       {/* Main Content Area */}
-      <main className="flex-1 flex flex-col h-screen overflow-hidden">
+      <main className="flex-1 flex flex-col min-h-screen">
         {/* Topbar */}
-        <header className="h-20 shrink-0 bg-white border-b border-[#E0D9C8] flex items-center justify-between px-8">
+        <header className="h-20 shrink-0 bg-white border-b border-[#E0D9C8] flex items-center justify-between px-8 sticky top-0 z-10">
           <h1 className="font-serif text-2xl text-[#997451]">
             {links.find(l => l.href === pathname)?.name || "Dashboard"}
           </h1>
@@ -80,7 +80,7 @@ export default function DashboardLayout({
         </header>
 
         {/* Dynamic Page Content */}
-        <div className="flex-1 overflow-auto p-8">
+        <div className="flex-1 p-8">
           {children}
         </div>
       </main>
