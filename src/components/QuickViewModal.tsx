@@ -17,11 +17,18 @@ export default function QuickViewModal({
   onAddToCart,
   onOpenCustomFitModal,
 }: QuickViewModalProps) {
-  if (!product) return null;
-
-  const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
-  const [selectedColor, setSelectedColor] = useState(product.colors[0].name);
+  const [selectedSize, setSelectedSize] = useState("");
+  const [selectedColor, setSelectedColor] = useState("");
   const [added, setAdded] = useState(false);
+
+  React.useEffect(() => {
+    if (product) {
+      setSelectedSize(product.sizes[0]);
+      setSelectedColor(product.colors[0].name);
+    }
+  }, [product]);
+
+  if (!product) return null;
 
   const handleAdd = () => {
     onAddToCart(product, selectedSize, selectedColor);
