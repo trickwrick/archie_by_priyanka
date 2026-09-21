@@ -7,7 +7,6 @@ import Link from "next/link";
 
 interface CategorySectionProps {
   onSelectCategory?: (category: string) => void;
-  onOpenCustomFitModal: () => void;
 }
 
 const TABS = [

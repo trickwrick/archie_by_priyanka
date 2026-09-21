@@ -3,16 +3,14 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import CustomFittingStudio from "@/components/CustomFittingStudio";
 import CartDrawer from "@/components/CartDrawer";
 import Image from "next/image";
 
 export default function AboutPage() {
-  const [isCustomFitModalOpen, setIsCustomFitModalOpen] = useState(false);
-
+  
   return (
     <main className="min-h-screen bg-[#FDFBF7] text-[#1E332D] flex flex-col font-sans pt-32 md:pt-40">
-      <Navbar onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
+      <Navbar />
 
       <div className="flex-1">
         {/* Hero Section for About */}
@@ -59,8 +57,7 @@ export default function AboutPage() {
           <p className="text-white/70 max-w-xl mx-auto mb-10 text-sm tracking-wide leading-relaxed">
             Ready to stop compromising? Book a consultation with Priyanka to have your next luxury monokini tailored to your exact anatomical measurements.
           </p>
-          <button 
-            onClick={() => setIsCustomFitModalOpen(true)}
+          <button
             className="bg-[#C8A366] text-white px-8 py-4 text-xs font-bold uppercase tracking-[0.25em] hover:bg-white hover:text-[#1E332D] transition-colors shadow-xl"
           >
             Start Your Bespoke Journey
@@ -68,9 +65,8 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <Footer onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
-      <CartDrawer onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
-      <CustomFittingStudio isOpen={isCustomFitModalOpen} onClose={() => setIsCustomFitModalOpen(false)} />
-    </main>
+      <Footer />
+      <CartDrawer />
+          </main>
   );
 }

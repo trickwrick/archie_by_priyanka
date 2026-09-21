@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import CustomFittingStudio from "@/components/CustomFittingStudio";
 import CartDrawer from "@/components/CartDrawer";
 import { useShop } from "@/context/ShopContext";
 import { Trash2, ShoppingBag, ArrowRight, Truck } from "lucide-react";
@@ -12,8 +11,7 @@ import { useRouter } from "next/navigation";
 
 export default function CartPage() {
   const { cartItems, updateQuantity, removeFromCart, cartTotalPrice } = useShop();
-  const [isCustomFitModalOpen, setIsCustomFitModalOpen] = useState(false);
-  const router = useRouter();
+    const router = useRouter();
 
   const shippingThreshold = 5000;
   const freeShipping = cartTotalPrice >= shippingThreshold || cartTotalPrice === 0;
@@ -23,7 +21,7 @@ export default function CartPage() {
 
   return (
     <main className="min-h-screen bg-[#F5EFE6] text-[#1E332D] flex flex-col font-sans pt-56">
-      <Navbar onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
+      <Navbar />
 
       <div className="flex-1 max-w-6xl mx-auto w-full px-6 lg:px-12 py-12">
         <h1 className="font-serif text-3xl md:text-4xl text-[#1E332D] mb-8 text-center md:text-left">
@@ -162,9 +160,8 @@ export default function CartPage() {
         )}
       </div>
 
-      <Footer onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
-      <CartDrawer onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
-      <CustomFittingStudio isOpen={isCustomFitModalOpen} onClose={() => setIsCustomFitModalOpen(false)} />
-    </main>
+      <Footer />
+      <CartDrawer />
+          </main>
   );
 }

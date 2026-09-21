@@ -8,14 +8,12 @@ interface QuickViewModalProps {
   product: Product | null;
   onClose: () => void;
   onAddToCart: (product: Product, size: string, color: string) => void;
-  onOpenCustomFitModal: () => void;
 }
 
 export default function QuickViewModal({
   product,
   onClose,
   onAddToCart,
-  onOpenCustomFitModal,
 }: QuickViewModalProps) {
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
@@ -127,7 +125,6 @@ export default function QuickViewModal({
                 <button
                   onClick={() => {
                     onClose();
-                    onOpenCustomFitModal();
                   }}
                   className="text-xs font-bold text-[#9A7B38] hover:underline flex items-center gap-1"
                 >
@@ -142,7 +139,6 @@ export default function QuickViewModal({
                     onClick={() => {
                       if (s === "Custom Fit") {
                         onClose();
-                        onOpenCustomFitModal();
                       } else {
                         setSelectedSize(s);
                       }

@@ -6,10 +6,9 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 
 interface EditorialSectionProps {
-  onOpenCustomFitModal: () => void;
 }
 
-export default function EditorialSection({ onOpenCustomFitModal }: EditorialSectionProps) {
+export default function EditorialSection({}: EditorialSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const leftRef = useRef<HTMLDivElement>(null);
   const rightRef = useRef<HTMLDivElement>(null);
@@ -181,7 +180,6 @@ export default function EditorialSection({ onOpenCustomFitModal }: EditorialSect
             </ul>
 
             <button
-              onClick={onOpenCustomFitModal}
               className="inline-flex items-center gap-3 text-[11px] font-black uppercase tracking-[0.3em] text-[#C8A366] group w-fit border-b border-[#C8A366] pb-1 hover:text-white hover:border-white transition-colors"
             >
               <Sparkles className="w-3.5 h-3.5" />

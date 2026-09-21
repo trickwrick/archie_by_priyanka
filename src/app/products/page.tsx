@@ -3,7 +3,6 @@
 import React, { useState, Suspense, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import CustomFittingStudio from "@/components/CustomFittingStudio";
 import CartDrawer from "@/components/CartDrawer";
 import QuickViewModal from "@/components/QuickViewModal";
 import { PRODUCTS, Product } from "@/data/products";
@@ -18,8 +17,7 @@ function ProductsContent() {
   const searchQuery = searchParams.get("q") || "";
   const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
   const [sortBy, setSortBy] = useState<string>("featured");
-  const [isCustomFitModalOpen, setIsCustomFitModalOpen] = useState(false);
-  const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
+    const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
   const { addToCart, toggleWishlist, isInWishlist } = useShop();
   const [dbProducts, setDbProducts] = useState<Product[]>(PRODUCTS);
 
@@ -67,7 +65,7 @@ function ProductsContent() {
 
   return (
     <main className="min-h-screen bg-[#F5EFE6] text-[#1E332D] flex flex-col font-sans pt-56">
-      <Navbar onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
+      <Navbar />
 
       <div className="flex-1 max-w-7xl mx-auto w-full px-6 lg:px-12 py-12">
         <div className="text-center mb-12">
@@ -191,17 +189,12 @@ function ProductsContent() {
         )}
       </div>
 
-      <Footer onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
-      <CartDrawer onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
-      <CustomFittingStudio
-        isOpen={isCustomFitModalOpen}
-        onClose={() => setIsCustomFitModalOpen(false)}
-      />
-      <QuickViewModal
+      <Footer />
+      <CartDrawer />
+            <QuickViewModal
         product={quickViewProduct}
         onClose={() => setQuickViewProduct(null)}
         onAddToCart={addToCart}
-        onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)}
       />
     </main>
   );

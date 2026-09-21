@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import CustomFittingStudio from "@/components/CustomFittingStudio";
 import CartDrawer from "@/components/CartDrawer";
 import QuickViewModal from "@/components/QuickViewModal";
 import { Product } from "@/data/products";
@@ -14,13 +13,12 @@ import { useRouter } from "next/navigation";
 
 export default function FavoritesPage() {
   const router = useRouter();
-  const [isCustomFitModalOpen, setIsCustomFitModalOpen] = useState(false);
-  const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
+    const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
   const { wishlist, toggleWishlist, addToCart } = useShop();
 
   return (
     <main className="min-h-screen bg-[#F5EFE6] text-[#1E332D] flex flex-col font-sans pt-56">
-      <Navbar onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
+      <Navbar />
 
       <div className="flex-1 max-w-7xl mx-auto w-full px-6 lg:px-12 py-12">
         <div className="text-center mb-12">
@@ -110,17 +108,12 @@ export default function FavoritesPage() {
         )}
       </div>
 
-      <Footer onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
-      <CartDrawer onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
-      <CustomFittingStudio
-        isOpen={isCustomFitModalOpen}
-        onClose={() => setIsCustomFitModalOpen(false)}
-      />
-      <QuickViewModal
+      <Footer />
+      <CartDrawer />
+            <QuickViewModal
         product={quickViewProduct}
         onClose={() => setQuickViewProduct(null)}
         onAddToCart={addToCart}
-        onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)}
       />
     </main>
   );

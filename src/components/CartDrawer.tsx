@@ -7,12 +7,10 @@ import { X, Trash2, ShoppingBag, Sparkles, ArrowRight, ShieldCheck, Truck } from
 import { useShop, CartItem } from "@/context/ShopContext";
 
 interface CartDrawerProps {
-  onOpenCustomFitModal: () => void;
 }
 
 export default function CartDrawer({
-  onOpenCustomFitModal,
-}: CartDrawerProps) {
+  }: CartDrawerProps) {
   const { isCartOpen, setIsCartOpen, cartItems, updateQuantity, removeFromCart } = useShop();
   const [promoCode, setPromoCode] = useState("");
   const [discountApplied, setDiscountApplied] = useState(false);
@@ -187,7 +185,6 @@ export default function CartDrawer({
             <button
               onClick={() => {
                 setIsCartOpen(false);
-                onOpenCustomFitModal();
               }}
               className="w-full text-left py-2 px-3 bg-[#F8F5EE] border border-[#E0D9C8] text-[11px] text-[#9A7B38] font-bold flex items-center justify-between"
             >

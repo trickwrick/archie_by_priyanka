@@ -8,12 +8,10 @@ import Logo from "@/components/Logo";
 import { useShop } from "@/context/ShopContext";
 
 interface NavbarProps {
-  onOpenCustomFitModal: () => void;
 }
 
 export default function Navbar({
-  onOpenCustomFitModal,
-}: NavbarProps) {
+  }: NavbarProps) {
   const { cartTotalCount, setIsCartOpen, wishlistCount } = useShop();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -89,7 +87,7 @@ export default function Navbar({
                 <Link href="/products?category=Bikinis" className="hover:text-[#C8A366] transition-colors">
                   BIKINIS
                 </Link>
-                <button onClick={onOpenCustomFitModal} className="hover:text-[#C8A366] transition-colors">
+                <button className="hover:text-[#C8A366] transition-colors">
                   CUSTOM FIT
                 </button>
               </div>
@@ -192,7 +190,6 @@ export default function Navbar({
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  onOpenCustomFitModal();
                 }}
                 className="text-left text-[#C8A366] flex items-center gap-3"
               >
@@ -208,7 +205,6 @@ export default function Navbar({
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
-                onOpenCustomFitModal();
               }}
               className="w-full py-4 bg-[#C8A366] text-white font-semibold text-xs tracking-[0.25em] uppercase hover:bg-white hover:text-[#1E332D] transition-colors"
             >

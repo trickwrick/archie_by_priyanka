@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 export default function NotFound() {
   return (
     <main className="min-h-screen bg-[#FDFBF7] text-[#1E332D] flex flex-col font-sans">
-      <Navbar onOpenCustomFitModal={() => {}} />
+      <Navbar  />
 
       <div className="flex-1 flex flex-col items-center justify-center text-center px-6 pt-32 pb-24">
         <h1 className="font-serif text-8xl md:text-9xl text-[#C8A366] mb-6">404</h1>
@@ -27,7 +27,7 @@ export default function NotFound() {
         </Link>
       </div>
 
-      <Footer onOpenCustomFitModal={() => {}} />
+      <Footer  />
     </main>
   );
 }

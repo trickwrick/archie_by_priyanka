@@ -8,13 +8,11 @@ import Link from "next/link";
 interface NewArrivalsCarouselProps {
   products: Product[];
   onQuickView: (product: Product) => void;
-  onOpenCustomFitModal: () => void;
 }
 
 export default function NewArrivalsCarousel({
   products,
   onQuickView,
-  onOpenCustomFitModal,
 }: NewArrivalsCarouselProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   
@@ -64,12 +62,7 @@ export default function NewArrivalsCarousel({
               <p className="text-white/90 text-xs font-serif italic mb-6">
                 For some, it begins before the sun.
               </p>
-              <button
-                onClick={onOpenCustomFitModal}
-                className="bg-[#1E332D] text-white px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#C8A366] transition-colors w-full max-w-50"
-              >
-                Shop Now
-              </button>
+              <Link href="/products" className="bg-[#1E332D] text-white px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#C8A366] transition-colors w-full max-w-50 inline-block text-center">Shop Now</Link>
             </div>
           </div>
 

@@ -5,7 +5,6 @@ import { useParams, useRouter } from "next/navigation";
 import { PRODUCTS, Product } from "@/data/products";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import CustomFittingStudio from "@/components/CustomFittingStudio";
 import CartDrawer from "@/components/CartDrawer";
 import { useShop } from "@/context/ShopContext";
 import { Heart, ShoppingBag, ArrowLeft, Ruler, ShieldCheck, Star } from "lucide-react";
@@ -21,8 +20,7 @@ export default function ProductDetailsPage() {
   
   const [selectedSize, setSelectedSize] = useState<string>("");
   const [selectedColor, setSelectedColor] = useState<string>("");
-  const [isCustomFitModalOpen, setIsCustomFitModalOpen] = useState(false);
-  
+    
   const { addToCart, toggleWishlist, isInWishlist } = useShop();
 
   useEffect(() => {
@@ -85,7 +83,7 @@ export default function ProductDetailsPage() {
 
   return (
     <main className="min-h-screen bg-[#F5EFE6] text-[#1E332D] flex flex-col font-sans pt-28">
-      <Navbar onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
+      <Navbar />
 
       <div className="flex-1 max-w-7xl mx-auto w-full px-6 lg:px-12 py-8">
         <button onClick={() => router.back()} className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-neutral-500 hover:text-[#C8A366] transition-colors mb-8">
@@ -157,11 +155,7 @@ export default function ProductDetailsPage() {
                   <button
                     key={size}
                     onClick={() => {
-                      if (size === "Custom Fit") {
-                        setIsCustomFitModalOpen(true);
-                      } else {
-                        setSelectedSize(size);
-                      }
+                      setSelectedSize(size);
                     }}
                     className={`py-3 text-xs font-bold tracking-widest uppercase border transition-all ${
                       selectedSize === size
@@ -274,9 +268,8 @@ export default function ProductDetailsPage() {
         )}
       </div>
 
-      <Footer onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
-      <CartDrawer onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
-      <CustomFittingStudio isOpen={isCustomFitModalOpen} onClose={() => setIsCustomFitModalOpen(false)} />
-    </main>
+      <Footer />
+      <CartDrawer />
+          </main>
   );
 }

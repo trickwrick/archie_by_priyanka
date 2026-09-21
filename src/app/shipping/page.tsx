@@ -3,15 +3,13 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import CustomFittingStudio from "@/components/CustomFittingStudio";
 import CartDrawer from "@/components/CartDrawer";
 
 export default function ShippingPage() {
-  const [isCustomFitModalOpen, setIsCustomFitModalOpen] = useState(false);
-
+  
   return (
     <main className="min-h-screen bg-[#FDFBF7] text-[#1E332D] flex flex-col font-sans pt-32 md:pt-40">
-      <Navbar onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
+      <Navbar />
 
       <div className="flex-1 max-w-3xl mx-auto w-full px-6 lg:px-12 mb-24">
         <div className="text-center mb-16">
@@ -61,9 +59,8 @@ export default function ShippingPage() {
         </div>
       </div>
 
-      <Footer onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
-      <CartDrawer onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
-      <CustomFittingStudio isOpen={isCustomFitModalOpen} onClose={() => setIsCustomFitModalOpen(false)} />
-    </main>
+      <Footer />
+      <CartDrawer />
+          </main>
   );
 }

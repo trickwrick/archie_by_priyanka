@@ -21,10 +21,9 @@ const InstagramIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
 );
 
 interface FooterProps {
-  onOpenCustomFitModal: () => void;
 }
 
-export default function Footer({ onOpenCustomFitModal }: FooterProps) {
+export default function Footer({}: FooterProps) {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
@@ -168,15 +167,6 @@ export default function Footer({ onOpenCustomFitModal }: FooterProps) {
                   <Link href="/about" className="hover:text-[#C8A366] transition-colors">
                     Our Story
                   </Link>
-                </li>
-                <li>
-                  <button
-                    onClick={onOpenCustomFitModal}
-                    className="text-[#C8A366] font-bold hover:underline flex items-center gap-1"
-                  >
-                    <Sparkles className="w-3 h-3" />
-                    Bespoke Fitting
-                  </button>
                 </li>
                 <li>
                   <Link href="/admin/login" className="hover:text-[#C8A366] transition-colors">

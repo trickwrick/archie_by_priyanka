@@ -10,7 +10,6 @@ import BrandPromises from "@/components/BrandPromises";
 import InstagramShop from "@/components/InstagramShop";
 import FullWidthEditorial from "@/components/FullWidthEditorial";
 import NewArrivalsCarousel from "@/components/NewArrivalsCarousel";
-import CustomFittingStudio from "@/components/CustomFittingStudio";
 import CartDrawer from "@/components/CartDrawer";
 import QuickViewModal from "@/components/QuickViewModal";
 import HomeFAQ from "@/components/HomeFAQ";
@@ -22,8 +21,7 @@ import { useShop } from "@/context/ShopContext";
 
 export default function Home() {
   const { addToCart } = useShop();
-  const [isCustomFitModalOpen, setIsCustomFitModalOpen] = useState<boolean>(false);
-  const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
+    const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [dbProducts, setDbProducts] = useState<Product[]>(PRODUCTS);
 
@@ -47,44 +45,39 @@ export default function Home() {
       {/* Hidden trigger button for FullWidthEditorial CTA */}
       <button
         id="custom-fit-trigger"
-        onClick={() => setIsCustomFitModalOpen(true)}
         className="hidden"
         aria-hidden="true"
       />
 
       {/* Sticky Luxury Navbar */}
       <Navbar
-        onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)}
       />
 
       {/* Hero Slider */}
-      <Hero onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
+      <Hero />
 
       {/* New Arrivals Video Carousel */}
       <NewArrivalsCarousel
         products={dbProducts}
         onQuickView={(p) => setQuickViewProduct(p)}
-        onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)}
       />
 
       {/* Shop By Category Section */}
       <CategorySection
         onSelectCategory={(cat) => setSelectedCategory(cat)}
-        onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)}
       />
 
       {/* Featured Product Catalog */}
       <FeaturedProducts
         products={dbProducts}
         onQuickView={(p) => setQuickViewProduct(p)}
-        onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)}
       />
 
       {/* Brand Promises / USP Section */}
       <BrandPromises />
 
       {/* Editorial Split Feature */}
-      <EditorialSection onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
+      <EditorialSection />
 
       {/* Instagram Shop Grid */}
       <InstagramShop />
@@ -102,25 +95,19 @@ export default function Home() {
       <HomeFAQ />
 
       {/* Footer */}
-      <Footer onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
+      <Footer />
 
       {/* Cart Drawer */}
       <CartDrawer
-        onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)}
       />
 
       {/* Custom Fit Studio Modal */}
-      <CustomFittingStudio
-        isOpen={isCustomFitModalOpen}
-        onClose={() => setIsCustomFitModalOpen(false)}
-      />
-
+      
       {/* Quick View Modal */}
       <QuickViewModal
         product={quickViewProduct}
         onClose={() => setQuickViewProduct(null)}
         onAddToCart={addToCart}
-        onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)}
       />
     </main>
   );

@@ -9,7 +9,6 @@ import Link from "next/link";
 interface FeaturedProductsProps {
   products: Product[];
   onQuickView: (product: Product) => void;
-  onOpenCustomFitModal: () => void;
 }
 
 const cardVariants: Variants = {
@@ -20,7 +19,6 @@ const cardVariants: Variants = {
 export default function FeaturedProducts({
   products,
   onQuickView,
-  onOpenCustomFitModal,
 }: FeaturedProductsProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const isSectionInView = useInView(sectionRef, { once: true, margin: "-100px" });

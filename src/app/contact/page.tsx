@@ -3,16 +3,14 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import CustomFittingStudio from "@/components/CustomFittingStudio";
 import CartDrawer from "@/components/CartDrawer";
 import { Mail, MapPin, Phone, ArrowRight } from "lucide-react";
 
 export default function ContactPage() {
-  const [isCustomFitModalOpen, setIsCustomFitModalOpen] = useState(false);
-
+  
   return (
     <main className="min-h-screen bg-[#FDFBF7] text-[#1E332D] flex flex-col font-sans pt-32 md:pt-40">
-      <Navbar onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
+      <Navbar />
 
       <div className="flex-1 max-w-7xl mx-auto w-full px-6 lg:px-12 mb-24">
         {/* Header */}
@@ -70,8 +68,7 @@ export default function ContactPage() {
               <p className="text-sm text-white/70 mb-6 leading-relaxed">
                 Experience our signature zero-pinch fitting process. Connect directly with Priyanka to design your perfect swimsuit.
               </p>
-              <button 
-                onClick={() => setIsCustomFitModalOpen(true)}
+              <button
                 className="text-xs font-bold uppercase tracking-[0.2em] text-[#C8A366] hover:text-white transition-colors flex items-center gap-2"
               >
                 Open Fitting Studio <ArrowRight className="w-4 h-4" />
@@ -153,9 +150,8 @@ export default function ContactPage() {
         </div>
       </div>
 
-      <Footer onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
-      <CartDrawer onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
-      <CustomFittingStudio isOpen={isCustomFitModalOpen} onClose={() => setIsCustomFitModalOpen(false)} />
-    </main>
+      <Footer />
+      <CartDrawer />
+          </main>
   );
 }

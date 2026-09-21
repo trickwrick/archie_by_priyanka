@@ -3,17 +3,15 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import CustomFittingStudio from "@/components/CustomFittingStudio";
 import CartDrawer from "@/components/CartDrawer";
 import Link from "next/link";
 import { ArrowRight, User } from "lucide-react";
 
 export default function AccountPage() {
-  const [isCustomFitModalOpen, setIsCustomFitModalOpen] = useState(false);
-
+  
   return (
     <main className="min-h-screen bg-[#F5EFE6] text-[#1E332D] flex flex-col font-sans pt-56">
-      <Navbar onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
+      <Navbar />
 
       <div className="flex-1 max-w-5xl mx-auto w-full px-6 lg:px-12 py-16">
         <div className="text-center mb-16">
@@ -102,9 +100,8 @@ export default function AccountPage() {
         </div>
       </div>
 
-      <Footer onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
-      <CartDrawer onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
-      <CustomFittingStudio isOpen={isCustomFitModalOpen} onClose={() => setIsCustomFitModalOpen(false)} />
-    </main>
+      <Footer />
+      <CartDrawer />
+          </main>
   );
 }

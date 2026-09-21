@@ -3,15 +3,13 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import CustomFittingStudio from "@/components/CustomFittingStudio";
 import { useShop } from "@/context/ShopContext";
 import { Lock, CreditCard, CheckCircle, ShoppingBag } from "lucide-react";
 import Link from "next/link";
 
 export default function CheckoutPage() {
   const { cartItems, cartTotalPrice, placeOrder } = useShop();
-  const [isCustomFitModalOpen, setIsCustomFitModalOpen] = useState(false);
-  const [orderPlaced, setOrderPlaced] = useState(false);
+    const [orderPlaced, setOrderPlaced] = useState(false);
 
   const shippingThreshold = 5000;
   const freeShipping = cartTotalPrice >= shippingThreshold || cartTotalPrice === 0;
@@ -27,7 +25,7 @@ export default function CheckoutPage() {
   if (cartItems.length === 0 && !orderPlaced) {
     return (
       <main className="min-h-screen bg-[#F5EFE6] text-[#1E332D] flex flex-col font-sans pt-56">
-        <Navbar onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
+        <Navbar />
         <div className="flex-1 max-w-3xl mx-auto w-full px-6 py-24 text-center">
           <ShoppingBag className="w-20 h-20 text-neutral-300 mx-auto mb-6 stroke-1" />
           <h1 className="font-serif text-4xl text-[#1E332D] mb-4">Your Cart is Empty</h1>
@@ -41,7 +39,7 @@ export default function CheckoutPage() {
             Return to Shop
           </Link>
         </div>
-        <Footer onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
+        <Footer />
       </main>
     );
   }
@@ -49,7 +47,7 @@ export default function CheckoutPage() {
   if (orderPlaced) {
     return (
       <main className="min-h-screen bg-[#F5EFE6] text-[#1E332D] flex flex-col font-sans pt-56">
-        <Navbar onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
+        <Navbar />
         <div className="flex-1 max-w-3xl mx-auto w-full px-6 py-24 text-center">
           <CheckCircle className="w-20 h-20 text-[#C8A366] mx-auto mb-6" />
           <h1 className="font-serif text-4xl text-[#1E332D] mb-4">Order Confirmed</h1>
@@ -71,14 +69,14 @@ export default function CheckoutPage() {
             </Link>
           </div>
         </div>
-        <Footer onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
+        <Footer />
       </main>
     );
   }
 
   return (
     <main className="min-h-screen bg-[#F5EFE6] text-[#1E332D] flex flex-col font-sans pt-56">
-      <Navbar onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
+      <Navbar />
 
       <div className="flex-1 max-w-6xl mx-auto w-full px-6 lg:px-12 py-12">
         <div className="flex flex-col lg:flex-row gap-12">
@@ -201,8 +199,7 @@ export default function CheckoutPage() {
         </div>
       </div>
 
-      <Footer onOpenCustomFitModal={() => setIsCustomFitModalOpen(true)} />
-      <CustomFittingStudio isOpen={isCustomFitModalOpen} onClose={() => setIsCustomFitModalOpen(false)} />
-    </main>
+      <Footer />
+          </main>
   );
 }
