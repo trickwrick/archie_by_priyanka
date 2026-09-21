@@ -66,9 +66,9 @@ export default function NewArrivalsCarousel({
               </p>
               <button
                 onClick={onOpenCustomFitModal}
-                className="bg-[#5C162E] text-white px-8 py-2.5 text-[11px] font-bold rounded-full hover:bg-[#3A0E1D] transition-colors w-full max-w-50"
+                className="bg-[#1E332D] text-white px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#C8A366] transition-colors w-full max-w-50"
               >
-                Show Now
+                Shop Now
               </button>
             </div>
           </div>
