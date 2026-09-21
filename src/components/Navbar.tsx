@@ -102,18 +102,18 @@ export default function Navbar({
                 className="hover:text-[#C8A366] transition-colors flex flex-col items-center gap-1 group"
                 aria-label="Search"
               >
-                <Search className="w-5 h-5 sm:w-[22px] sm:h-[22px] stroke-[1.5]" />
+                <Search className="w-5 h-5 sm:w-5.5 sm:h-5.5 stroke-[1.5]" />
                 <span className="text-[8px] sm:text-[9px] uppercase tracking-wider font-semibold opacity-80 group-hover:opacity-100 hidden md:block">Search</span>
               </button>
               
               <Link href="/account" className="hover:text-[#C8A366] transition-colors hidden md:flex flex-col items-center gap-1 group" title="My Account">
-                <User className="w-5 h-5 sm:w-[22px] sm:h-[22px] stroke-[1.5]" />
+                <User className="w-5 h-5 sm:w-5.5 sm:h-5.5 stroke-[1.5]" />
                 <span className="text-[8px] sm:text-[9px] uppercase tracking-wider font-semibold opacity-80 group-hover:opacity-100">Account</span>
               </Link>
 
               <Link href="/favorites" className="hover:text-[#C8A366] transition-colors relative flex flex-col items-center gap-1 group" title="Wishlist">
                 <div className="relative">
-                  <Heart className="w-5 h-5 sm:w-[22px] sm:h-[22px] stroke-[1.5]" />
+                  <Heart className="w-5 h-5 sm:w-5.5 sm:h-5.5 stroke-[1.5]" />
                   {wishlistCount > 0 && (
                     <span className="absolute -top-1.5 -right-2 bg-[#C8A366] text-white text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full">
                       {wishlistCount}
@@ -129,7 +129,7 @@ export default function Navbar({
                 title="Cart"
               >
                 <div className="relative">
-                  <ShoppingBag className="w-5 h-5 sm:w-[22px] sm:h-[22px] stroke-[1.5]" />
+                  <ShoppingBag className="w-5 h-5 sm:w-5.5 sm:h-5.5 stroke-[1.5]" />
                   {cartTotalCount > 0 && (
                     <span className="absolute -top-1.5 -right-2 bg-[#C8A366] text-white text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full">
                       {cartTotalCount}
