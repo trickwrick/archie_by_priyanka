@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { Send, Heart, Sparkles, ShieldCheck, Truck, Lock } from "lucide-react";
 import Link from "next/link";
-import { FaCcVisa, FaCcMastercard, FaCcAmex, FaMoneyBillWave, FaDesktop } from "react-icons/fa";
 
 const InstagramIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
   <svg
@@ -76,6 +75,42 @@ export default function Footer({ onOpenCustomFitModal }: FooterProps) {
                 Welcome to the VIP Circle! You will receive our next collection lookbook directly.
               </div>
             )}
+
+            {/* Payment Methods */}
+            <div className="mt-8 max-w-md">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-white/50 mb-3 font-semibold">Accepted Payment Methods</p>
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                {/* Visa */}
+                <div className="bg-white px-2.5 py-1 rounded-sm shadow-sm flex items-center justify-center h-8" title="Visa">
+                  <span className="text-[#1434CB] font-black italic text-sm leading-none">VISA</span>
+                </div>
+                {/* MasterCard */}
+                <div className="bg-white px-2 py-1 rounded-sm shadow-sm flex items-center justify-center h-8" title="MasterCard">
+                  <div className="flex items-center">
+                    <div className="w-3.5 h-3.5 rounded-full bg-[#EB001B] opacity-90 z-10"></div>
+                    <div className="w-3.5 h-3.5 rounded-full bg-[#F79E1B] opacity-90 -ml-1.5 z-0"></div>
+                  </div>
+                  <span className="text-[#1A1F71] font-bold text-[9px] ml-1">mastercard</span>
+                </div>
+                {/* Amex */}
+                <div className="bg-[#2671B9] px-2 py-1 rounded-sm shadow-sm flex items-center justify-center h-8" title="American Express">
+                  <span className="text-white font-bold text-[10px] tracking-wider">AMEX</span>
+                </div>
+                {/* Net Banking */}
+                <div className="bg-white px-2.5 py-1 rounded-sm shadow-sm flex items-center justify-center h-8" title="Net Banking">
+                  <span className="text-neutral-700 font-bold text-[10px]">Net Banking</span>
+                </div>
+                {/* COD */}
+                <div className="bg-[#C8A366] px-2.5 py-1 rounded-sm shadow-sm flex items-center justify-center h-8" title="Cash on Delivery">
+                  <span className="text-[#1E332D] font-bold text-[10px]">COD</span>
+                </div>
+                {/* BHIM UPI */}
+                <div className="bg-white px-2 py-1 rounded-sm shadow-sm flex items-center justify-center gap-1 h-8" title="BHIM UPI">
+                  <span className="text-[#FF7A00] font-black text-[10px]">BHIM</span>
+                  <span className="text-[#00892C] font-black text-[10px]">UPI</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-xs text-white/70">
@@ -182,24 +217,8 @@ export default function Footer({ onOpenCustomFitModal }: FooterProps) {
           </div>
         </div>
 
-        {/* Payment Icons */}
-        <div className="pt-8 pb-4 flex flex-wrap justify-center md:justify-start items-center gap-5 text-white/50">
-          <FaCcVisa className="w-8 h-8 hover:text-white transition-colors" title="Visa" />
-          <FaCcMastercard className="w-8 h-8 hover:text-white transition-colors" title="MasterCard" />
-          <FaCcAmex className="w-8 h-8 hover:text-white transition-colors" title="American Express" />
-          <div className="flex items-center gap-1.5 hover:text-white transition-colors" title="Online Banking">
-             <FaDesktop className="w-5 h-5" /> <span className="text-[10px] font-bold uppercase tracking-wider">Net Banking</span>
-          </div>
-          <div className="flex items-center gap-1.5 hover:text-white transition-colors" title="Cash on Delivery">
-             <FaMoneyBillWave className="w-5 h-5" /> <span className="text-[10px] font-bold uppercase tracking-wider">COD</span>
-          </div>
-          <div className="flex items-center hover:text-white transition-colors" title="BHIM / UPI">
-             <span className="text-[11px] font-black italic tracking-widest border border-white/50 px-2 py-0.5 rounded-sm">BHIM UPI</span>
-          </div>
-        </div>
-
         {/* Brand Copyright Footer Bottom */}
-        <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-[#C8A366]/20">
+        <div className="pt-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <p className="text-[11px] text-white/60 font-light mt-1 md:mt-0">
               Handcrafted Swimwear & Resortwear • Designed by Priyanka in Mumbai, India.
