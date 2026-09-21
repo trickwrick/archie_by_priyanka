@@ -32,13 +32,16 @@ export default function NewArrivalsCarousel({
   };
 
   return (
-    <section className="relative py-16 bg-[#FAF6F0] overflow-hidden">
+    <section className="relative py-16 sm:py-24 bg-[#FAF6F0] overflow-hidden">
       <div className="max-w-350 mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Centered Title */}
-        <h2 className="text-center font-sans text-xl sm:text-2xl text-[#1E332D] mb-10 tracking-wide">
-          New Arrival
-        </h2>
+        <div className="text-center mb-10">
+          <h2 className="font-serif text-3xl md:text-4xl text-[#1E332D] mb-4">
+            New Arrivals
+          </h2>
+          <div className="w-12 h-px bg-[#C8A366] mx-auto" />
+        </div>
 
         {/* Layout Container */}
         <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
