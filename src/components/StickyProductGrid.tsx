@@ -21,7 +21,7 @@ export default function StickyProductGrid({ products, onQuickView }: StickyProdu
           
           {/* Left Side: Sticky Banner Container */}
           <div className="w-full lg:w-1/3 shrink-0 relative mb-8 lg:mb-0">
-            <div className="lg:sticky lg:top-32 w-full h-[600px] bg-[#F8E7D8] rounded-xl overflow-hidden flex flex-col items-center shadow-sm">
+            <div className="lg:sticky lg:top-32 w-full h-150 bg-[#F8E7D8] rounded-xl overflow-hidden flex flex-col items-center shadow-sm">
               {/* Banner Top Text/Graphic */}
               <div className="pt-8 pb-4 px-4 text-center w-full relative z-10">
                 <div className="inline-block bg-[#F1592A] text-white px-6 py-2 text-2xl font-black tracking-widest relative">
@@ -36,7 +36,7 @@ export default function StickyProductGrid({ products, onQuickView }: StickyProdu
               </div>
 
               {/* Banner Image */}
-              <div className="relative w-full flex-1 min-h-[300px]">
+              <div className="relative w-full flex-1 min-h-75">
                 <img
                   src="/images/hero_beach_luxury.jpg" 
                   alt="Deal of the day"
