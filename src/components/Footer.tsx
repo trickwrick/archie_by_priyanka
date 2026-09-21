@@ -194,9 +194,12 @@ export default function Footer({ onOpenCustomFitModal }: FooterProps) {
             </span>
           </div>
 
-          <p className="text-[11px] text-white/50 text-center md:text-right">
-            &copy; {new Date().getFullYear()} Archie&apos;s by Priyanka. All rights reserved.
-          </p>
+          <div className="flex flex-col items-center md:items-end gap-3 text-[11px] text-white/50 mt-4 md:mt-0">
+            <p className="text-center md:text-right">
+              &copy; {new Date().getFullYear()} Archie&apos;s by Priyanka. All rights reserved.
+            </p>
+            <img src="/payment-icons.png" alt="Accepted Payment Methods" className="h-7 md:h-8 opacity-80 hover:opacity-100 transition-opacity" />
+          </div>
         </div>
       </div>
     </footer>
