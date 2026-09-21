@@ -46,8 +46,8 @@ export default function Footer({ onOpenCustomFitModal }: FooterProps) {
               <Sparkles className="w-4 h-4 text-[#C8A366]" />
               THE PRIVATE ATELIER CLUB
             </div>
-            <h3 className="font-serif text-3xl font-normal text-white mb-3">
-              Join Archie&apos;s VIP Circle
+            <h3 className="font-serif text-3xl font-normal tracking-[0.15em] text-white uppercase mb-3">
+              ARCHIE&apos;S BY PRIYANKA
             </h3>
             <p className="text-xs text-white/70 font-light leading-relaxed max-w-md mb-6">
               Subscribe for exclusive previews of Priyanka&apos;s limited-edition resortwear, private fitting sessions, and VIP trunk show invitations.
@@ -169,10 +169,7 @@ export default function Footer({ onOpenCustomFitModal }: FooterProps) {
         {/* Brand Copyright Footer Bottom */}
         <div className="pt-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <span className="font-serif text-xl tracking-[0.2em] font-light text-white uppercase block">
-              ARCHIE&apos;S BY PRIYANKA
-            </span>
-            <p className="text-[11px] text-white/60 font-light mt-1">
+            <p className="text-[11px] text-white/60 font-light mt-1 md:mt-0">
               Handcrafted Swimwear & Resortwear • Designed by Priyanka in Mumbai, India.
             </p>
           </div>
@@ -194,12 +191,9 @@ export default function Footer({ onOpenCustomFitModal }: FooterProps) {
             </span>
           </div>
 
-          <div className="flex flex-col items-center md:items-end gap-3 text-[11px] text-white/50 mt-4 md:mt-0">
-            <p className="text-center md:text-right">
-              &copy; {new Date().getFullYear()} Archie&apos;s by Priyanka. All rights reserved.
-            </p>
-            <img src="/payment-icons.png" alt="Accepted Payment Methods" className="h-7 md:h-8 opacity-90 hover:opacity-100 transition-opacity" />
-          </div>
+          <p className="text-[11px] text-white/50 text-center md:text-right">
+            &copy; {new Date().getFullYear()} Archie&apos;s by Priyanka. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
