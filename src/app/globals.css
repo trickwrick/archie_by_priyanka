@@ -217,3 +217,9 @@
 .stagger-4 { animation-delay: 0.4s; }
 .stagger-5 { animation-delay: 0.5s; }
 .stagger-6 { animation-delay: 0.6s; }
+
+.hide-preloader #preloader-overlay {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}

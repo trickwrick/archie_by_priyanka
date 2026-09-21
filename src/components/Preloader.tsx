@@ -35,15 +35,26 @@ export default function Preloader() {
   if (hasSeen) return null;
 
   return (
-    <AnimatePresence>
-      {isLoading && (
-        <motion.div
-          key="preloader"
-          initial={{ y: 0 }}
-          exit={{ y: "-100%" }}
-          transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
-          className="fixed inset-0 z-100 flex items-center justify-center bg-[#1A1A1A] text-white"
-        >
+    <>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            if (sessionStorage.getItem("hasSeenPreloader")) {
+              document.documentElement.classList.add('hide-preloader');
+            }
+          `
+        }}
+      />
+      <AnimatePresence>
+        {isLoading && (
+          <motion.div
+            id="preloader-overlay"
+            key="preloader"
+            initial={{ y: 0 }}
+            exit={{ y: "-100%" }}
+            transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+            className="fixed inset-0 z-100 flex items-center justify-center bg-[#1A1A1A] text-white"
+          >
           <div className="flex flex-col items-center gap-6 overflow-hidden">
             {/* Logo Mark Reveal */}
             <motion.div
