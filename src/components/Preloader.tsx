@@ -3,8 +3,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import Script from "next/script";
-
 export default function Preloader() {
   const [isLoading, setIsLoading] = useState(true);
   const [hasSeen, setHasSeen] = useState(false);
@@ -39,9 +37,10 @@ export default function Preloader() {
 
   return (
     <>
-      <Script
+      {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+      <script
         id="hide-preloader"
-        strategy="beforeInteractive"
+        suppressHydrationWarning
         dangerouslySetInnerHTML={{
           __html: `
             if (sessionStorage.getItem("hasSeenPreloader")) {

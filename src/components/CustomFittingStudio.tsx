@@ -56,7 +56,7 @@ Please guide me with fabric options and placement! ✨`;
           </button>
           <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.25em] text-[#D4AF37] uppercase mb-2">
             <Sparkles className="w-4 h-4 text-[#D4AF37]" />
-            PRIYANKA'S ATELIER MUMBAI
+            PRIYANKA&apos;S ATELIER MUMBAI
           </div>
           <h2 className="font-serif text-3xl font-light tracking-wide text-white">
             Bespoke Custom Fitting Studio

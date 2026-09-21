@@ -23,6 +23,7 @@ export default function QuickViewModal({
 
   React.useEffect(() => {
     if (product) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSelectedSize(product.sizes[0]);
       setSelectedColor(product.colors[0].name);
     }

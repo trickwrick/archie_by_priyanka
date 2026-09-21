@@ -55,7 +55,7 @@ export default function ShippingPage() {
           <section>
             <h2 className="font-serif text-2xl text-[#1E332D] mb-4">Duties & Taxes</h2>
             <p className="leading-relaxed">
-              For international orders, please note that custom duties, local taxes, and import fees are not included at checkout. These charges are determined by your local customs authority and must be paid upon delivery. Archie's by Priyanka is not responsible for any delays caused by customs clearance.
+              For international orders, please note that custom duties, local taxes, and import fees are not included at checkout. These charges are determined by your local customs authority and must be paid upon delivery. Archie&apos;s by Priyanka is not responsible for any delays caused by customs clearance.
             </p>
           </section>
         </div>
