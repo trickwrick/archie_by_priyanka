@@ -96,39 +96,47 @@ export default function Navbar({
             </div>
 
             {/* Right: Utility Icons */}
-            <div className="flex items-center justify-end space-x-5 lg:space-x-6 text-white">
+            <div className="flex items-center justify-end space-x-4 lg:space-x-6 text-white mt-1">
               <button
                 onClick={() => setSearchOpen(!searchOpen)}
-                className="hover:text-[#C8A366] transition-colors flex items-center gap-2"
+                className="hover:text-[#C8A366] transition-colors flex flex-col items-center gap-1 group"
                 aria-label="Search"
               >
-                <Search className="w-5 h-5 stroke-1" />
+                <Search className="w-5 h-5 sm:w-[22px] sm:h-[22px] stroke-[1.5]" />
+                <span className="text-[8px] sm:text-[9px] uppercase tracking-wider font-semibold opacity-80 group-hover:opacity-100 hidden md:block">Search</span>
               </button>
               
-              <Link href="/account" className="hover:text-[#C8A366] transition-colors hidden md:block" title="My Account">
-                <User className="w-5 h-5 stroke-1" />
+              <Link href="/account" className="hover:text-[#C8A366] transition-colors hidden md:flex flex-col items-center gap-1 group" title="My Account">
+                <User className="w-5 h-5 sm:w-[22px] sm:h-[22px] stroke-[1.5]" />
+                <span className="text-[8px] sm:text-[9px] uppercase tracking-wider font-semibold opacity-80 group-hover:opacity-100">Account</span>
               </Link>
 
-              <Link href="/favorites" className="hover:text-[#C8A366] transition-colors relative" title="Wishlist">
-                <Heart className="w-5 h-5 stroke-1" />
-                {wishlistCount > 0 && (
-                  <span className="absolute -top-1.5 -right-1.5 bg-[#C8A366] text-white text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full">
-                    {wishlistCount}
-                  </span>
-                )}
+              <Link href="/favorites" className="hover:text-[#C8A366] transition-colors relative flex flex-col items-center gap-1 group" title="Wishlist">
+                <div className="relative">
+                  <Heart className="w-5 h-5 sm:w-[22px] sm:h-[22px] stroke-[1.5]" />
+                  {wishlistCount > 0 && (
+                    <span className="absolute -top-1.5 -right-2 bg-[#C8A366] text-white text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full">
+                      {wishlistCount}
+                    </span>
+                  )}
+                </div>
+                <span className="text-[8px] sm:text-[9px] uppercase tracking-wider font-semibold opacity-80 group-hover:opacity-100 hidden md:block">Wishlist</span>
               </Link>
 
               <button
                 onClick={() => setIsCartOpen(true)}
-                className="hover:text-[#C8A366] transition-colors relative"
+                className="hover:text-[#C8A366] transition-colors relative flex flex-col items-center gap-1 group"
                 title="Cart"
               >
-                <ShoppingBag className="w-5 h-5 stroke-1" />
-                {cartTotalCount > 0 && (
-                  <span className="absolute -top-1.5 -right-1.5 bg-[#C8A366] text-white text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full">
-                    {cartTotalCount}
-                  </span>
-                )}
+                <div className="relative">
+                  <ShoppingBag className="w-5 h-5 sm:w-[22px] sm:h-[22px] stroke-[1.5]" />
+                  {cartTotalCount > 0 && (
+                    <span className="absolute -top-1.5 -right-2 bg-[#C8A366] text-white text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full">
+                      {cartTotalCount}
+                    </span>
+                  )}
+                </div>
+                <span className="text-[8px] sm:text-[9px] uppercase tracking-wider font-semibold opacity-80 group-hover:opacity-100 hidden md:block">My Cart</span>
               </button>
             </div>
           </div>
