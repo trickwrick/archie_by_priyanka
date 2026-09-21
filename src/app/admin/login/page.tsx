@@ -9,15 +9,20 @@ export default function AdminLoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
   const router = useRouter();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+    setError("");
     
-    // Simulate login for now
     setTimeout(() => {
-      router.push("/admin");
+      if (email === "contact@archiebypriyanka.com" && password === "priyanka@#2026") {
+        router.push("/admin");
+      } else {
+        setError("Invalid email or password");
+      }
       setIsLoading(false);
     }, 1000);
   };
@@ -70,6 +75,12 @@ export default function AdminLoginPage() {
           </div>
 
           <form onSubmit={handleLogin} className="space-y-6">
+            {error && (
+              <div className="bg-red-50 text-red-500 p-3 text-xs font-semibold uppercase tracking-widest text-center border border-red-200">
+                {error}
+              </div>
+            )}
+            
             <div className="space-y-1">
               <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500">
                 Email Address

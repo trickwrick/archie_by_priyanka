@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Send, Heart, Sparkles, ShieldCheck, Truck, Lock } from "lucide-react";
+import { Send, Heart, Sparkles, ShieldCheck, Truck, Lock, Phone, Mail } from "lucide-react";
 import Link from "next/link";
 
 const InstagramIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
@@ -36,10 +36,10 @@ export default function Footer({}: FooterProps) {
   };
 
   return (
-    <footer className="bg-[#997451] text-white pt-20 pb-10 border-t border-[#C8A366]/30">
+    <footer className="bg-[#997451] text-white pt-12 pb-6 border-t border-[#C8A366]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Newsletter & Atelier Box */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 pb-16 border-b border-[#C8A366]/30">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pb-10 border-b border-[#C8A366]/30">
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.25em] text-[#C8A366] uppercase mb-3">
               <Sparkles className="w-4 h-4 text-[#C8A366]" />
@@ -154,6 +154,20 @@ export default function Footer({}: FooterProps) {
                     Contact Us
                   </Link>
                 </li>
+                <li className="pt-3 space-y-3">
+                  <a href="mailto:contact@archiebypriyanka.com" className="group flex items-center gap-3 text-white/80 hover:text-[#C8A366] transition-colors">
+                    <div className="w-8 h-8 rounded-full border border-white/20 group-hover:border-[#C8A366] flex items-center justify-center shrink-0 transition-colors">
+                      <Mail className="w-3.5 h-3.5" />
+                    </div>
+                    <span className="text-[11px] tracking-widest uppercase">contact@archiebypriyanka.com</span>
+                  </a>
+                  <a href="tel:+919136505323" className="group flex items-center gap-3 text-white/80 hover:text-[#C8A366] transition-colors">
+                    <div className="w-8 h-8 rounded-full border border-white/20 group-hover:border-[#C8A366] flex items-center justify-center shrink-0 transition-colors">
+                      <Phone className="w-3.5 h-3.5" />
+                    </div>
+                    <span className="text-[11px] tracking-widest font-semibold">+91 91365 05323</span>
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -208,7 +222,7 @@ export default function Footer({}: FooterProps) {
         </div>
 
         {/* Brand Copyright Footer Bottom */}
-        <div className="pt-10 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <p className="text-[11px] text-white/60 font-light mt-1 md:mt-0">
               Handcrafted Swimwear & Resortwear • Designed by Priyanka in Mumbai, India.
