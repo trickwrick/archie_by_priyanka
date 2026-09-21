@@ -51,8 +51,8 @@ export default function AdminCategories() {
   return (
     <div className="bg-white border border-[#E0D9C8] shadow-sm max-w-4xl">
       <div className="p-6 border-b border-[#E0D9C8] flex justify-between items-center">
-        <h2 className="font-serif text-xl text-[#1E332D]">Categories</h2>
-        <Link href="/admin/categories/new" className="bg-[#1E332D] text-white px-4 py-2 text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:bg-[#C8A366] transition-colors">
+        <h2 className="font-serif text-xl text-[#997451]">Categories</h2>
+        <Link href="/admin/categories/new" className="bg-[#997451] text-white px-4 py-2 text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:bg-[#C8A366] transition-colors">
           <Plus className="w-4 h-4" /> Add Category
         </Link>
       </div>
@@ -81,7 +81,7 @@ export default function AdminCategories() {
           ) : (
             categories.map((cat) => (
               <tr key={cat.id} className="border-b border-[#E0D9C8] hover:bg-neutral-50 transition-colors">
-                <td className="p-4 text-sm font-medium text-[#1E332D]">{cat.name}</td>
+                <td className="p-4 text-sm font-medium text-[#997451]">{cat.name}</td>
                 <td className="p-4 text-sm text-neutral-600">{cat.count || 0} Items</td>
                 <td className="p-4 text-right space-x-3">
                   <Link href={`/admin/categories/${cat.id}`} className="text-blue-500 hover:text-blue-700">

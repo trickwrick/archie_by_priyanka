@@ -26,7 +26,7 @@ export default function DashboardLayout({
   return (
     <div className="min-h-screen flex bg-[#FDFBF7]">
       {/* Sidebar */}
-      <aside className="w-64 bg-[#1E332D] text-white flex flex-col transition-all duration-300 shrink-0">
+      <aside className="w-64 bg-[#997451] text-white flex flex-col transition-all duration-300 shrink-0">
         <div className="p-6 border-b border-white/10 flex justify-center">
           <Link href="/admin">
             <Logo light={true} compact={true} />
@@ -65,12 +65,12 @@ export default function DashboardLayout({
       <main className="flex-1 flex flex-col h-screen overflow-hidden">
         {/* Topbar */}
         <header className="h-20 shrink-0 bg-white border-b border-[#E0D9C8] flex items-center justify-between px-8">
-          <h1 className="font-serif text-2xl text-[#1E332D]">
+          <h1 className="font-serif text-2xl text-[#997451]">
             {links.find(l => l.href === pathname)?.name || "Dashboard"}
           </h1>
           <div className="flex items-center gap-4">
             <div className="text-right hidden md:block">
-              <p className="text-xs font-bold uppercase tracking-widest text-[#1E332D]">Admin User</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-[#997451]">Admin User</p>
               <p className="text-[10px] text-neutral-500 uppercase tracking-widest">admin@archies.com</p>
             </div>
             <div className="w-10 h-10 bg-[#C8A366] rounded-full flex items-center justify-center text-white font-serif text-lg">

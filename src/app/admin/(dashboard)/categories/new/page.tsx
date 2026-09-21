@@ -45,17 +45,17 @@ export default function NewCategoryPage() {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
           <Link href="/admin/categories" className="p-2 border border-[#E0D9C8] hover:bg-white transition-colors">
-            <ArrowLeft className="w-5 h-5 text-[#1E332D]" />
+            <ArrowLeft className="w-5 h-5 text-[#997451]" />
           </Link>
           <div>
-            <h2 className="font-serif text-2xl text-[#1E332D]">Add New Category</h2>
+            <h2 className="font-serif text-2xl text-[#997451]">Add New Category</h2>
             <p className="text-xs text-neutral-500 mt-1 uppercase tracking-widest">Create a new category</p>
           </div>
         </div>
         <button 
           type="submit"
           disabled={saving}
-          className="bg-[#1E332D] text-white px-6 py-2.5 text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:bg-[#C8A366] transition-colors disabled:opacity-50"
+          className="bg-[#997451] text-white px-6 py-2.5 text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:bg-[#C8A366] transition-colors disabled:opacity-50"
         >
           {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />} 
           {saving ? 'Creating...' : 'Create Category'}
@@ -63,7 +63,7 @@ export default function NewCategoryPage() {
       </div>
 
       <div className="bg-white border border-[#E0D9C8] shadow-sm p-6 space-y-6">
-        <h3 className="font-serif text-lg text-[#1E332D] border-b border-[#E0D9C8] pb-4">Category Details</h3>
+        <h3 className="font-serif text-lg text-[#997451] border-b border-[#E0D9C8] pb-4">Category Details</h3>
         
         <div>
           <label className="block text-xs font-bold uppercase tracking-widest text-neutral-600 mb-2">Category Name</label>

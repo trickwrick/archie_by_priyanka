@@ -14,7 +14,7 @@ export default function AdminCustomers() {
   return (
     <div className="bg-white border border-[#E0D9C8] shadow-sm">
       <div className="p-6 border-b border-[#E0D9C8] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <h2 className="font-serif text-xl text-[#1E332D]">Customers</h2>
+        <h2 className="font-serif text-xl text-[#997451]">Customers</h2>
         
         <div className="relative">
           <input 
@@ -40,10 +40,10 @@ export default function AdminCustomers() {
           <tbody>
             {customers.map((customer) => (
               <tr key={customer.id} className="border-b border-[#E0D9C8] hover:bg-neutral-50 transition-colors">
-                <td className="p-4 text-sm font-medium text-[#1E332D]">{customer.name}</td>
+                <td className="p-4 text-sm font-medium text-[#997451]">{customer.name}</td>
                 <td className="p-4 text-sm text-neutral-600">{customer.email}</td>
                 <td className="p-4 text-sm text-neutral-600 text-center">{customer.orders}</td>
-                <td className="p-4 text-sm font-bold text-[#1E332D] text-right">{customer.totalSpent}</td>
+                <td className="p-4 text-sm font-bold text-[#997451] text-right">{customer.totalSpent}</td>
                 <td className="p-4 text-center">
                   <button 
                     onClick={() => alert(`Open email draft to ${customer.email}`)}

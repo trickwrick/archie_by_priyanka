@@ -15,12 +15,12 @@ export default function AdminSlider() {
       <div className="bg-white border border-[#E0D9C8] shadow-sm">
         <div className="p-6 border-b border-[#E0D9C8] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div>
-            <h2 className="font-serif text-xl text-[#1E332D]">Hero Slider Images</h2>
+            <h2 className="font-serif text-xl text-[#997451]">Hero Slider Images</h2>
             <p className="text-xs text-neutral-500 mt-1">Manage the images displayed on the home page hero slider.</p>
           </div>
           <button 
             onClick={() => alert("Upload Image action triggered")}
-            className="bg-[#1E332D] text-white px-4 py-2 text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:bg-[#C8A366] transition-colors"
+            className="bg-[#997451] text-white px-4 py-2 text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:bg-[#C8A366] transition-colors"
           >
             <Upload className="w-4 h-4" /> Upload New
           </button>
@@ -34,7 +34,7 @@ export default function AdminSlider() {
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-3">
                   <button 
                     onClick={() => alert("Change Image action triggered")}
-                    className="bg-white text-[#1E332D] px-4 py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-[#C8A366] hover:text-white transition-colors"
+                    className="bg-white text-[#997451] px-4 py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-[#C8A366] hover:text-white transition-colors"
                   >
                     Change Image
                   </button>
@@ -65,7 +65,7 @@ export default function AdminSlider() {
         <div className="p-6 border-t border-[#E0D9C8] bg-neutral-50 flex justify-end">
           <button 
             onClick={() => alert("Save Changes action triggered")}
-            className="bg-[#1E332D] text-white px-6 py-2.5 text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:bg-[#C8A366] transition-colors"
+            className="bg-[#997451] text-white px-6 py-2.5 text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:bg-[#C8A366] transition-colors"
           >
             <Save className="w-4 h-4" /> Save Changes
           </button>

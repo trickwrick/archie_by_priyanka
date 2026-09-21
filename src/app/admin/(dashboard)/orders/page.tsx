@@ -14,7 +14,7 @@ export default function AdminOrders() {
   return (
     <div className="bg-white border border-[#E0D9C8] shadow-sm">
       <div className="p-6 border-b border-[#E0D9C8] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <h2 className="font-serif text-xl text-[#1E332D]">Order Management</h2>
+        <h2 className="font-serif text-xl text-[#997451]">Order Management</h2>
         
         <div className="flex items-center gap-3">
           <div className="relative">
@@ -46,10 +46,10 @@ export default function AdminOrders() {
           <tbody>
             {mockOrders.map((order) => (
               <tr key={order.id} className="border-b border-[#E0D9C8] hover:bg-neutral-50 transition-colors">
-                <td className="p-4 text-sm font-medium text-[#1E332D]">{order.id}</td>
+                <td className="p-4 text-sm font-medium text-[#997451]">{order.id}</td>
                 <td className="p-4 text-sm text-neutral-600">{order.customer}</td>
                 <td className="p-4 text-sm text-neutral-600">{order.date}</td>
-                <td className="p-4 text-sm font-medium text-[#1E332D]">{order.total}</td>
+                <td className="p-4 text-sm font-medium text-[#997451]">{order.total}</td>
                 <td className="p-4">
                   <span className={`px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-full ${
                     order.status === 'Pending' ? 'bg-amber-100 text-amber-800' :

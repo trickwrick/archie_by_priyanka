@@ -30,7 +30,7 @@ export default function AdminLoginPage() {
   return (
     <div className="min-h-screen flex">
       {/* Left Panel - Branding */}
-      <div className="hidden lg:flex lg:w-1/2 bg-[#1E332D] flex-col justify-between p-12 relative overflow-hidden">
+      <div className="hidden lg:flex lg:w-1/2 bg-[#997451] flex-col justify-between p-12 relative overflow-hidden">
         {/* Subtle decorative background elements */}
         <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-[#C8A366] opacity-10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-[#C8A366] opacity-10 rounded-full blur-3xl"></div>
@@ -59,16 +59,16 @@ export default function AdminLoginPage() {
           
           {/* Mobile Logo */}
           <div className="lg:hidden flex justify-center mb-12">
-             <div className="bg-[#1E332D] p-6 rounded-lg shadow-xl inline-block">
+             <div className="bg-[#997451] p-6 rounded-lg shadow-xl inline-block">
                <Logo light={true} compact={true} />
              </div>
           </div>
 
           <div className="space-y-3">
-            <div className="w-12 h-12 bg-[#1E332D] text-[#C8A366] flex items-center justify-center mb-6">
+            <div className="w-12 h-12 bg-[#997451] text-[#C8A366] flex items-center justify-center mb-6">
               <Lock className="w-5 h-5 stroke-1" />
             </div>
-            <h2 className="font-serif text-3xl text-[#1E332D]">Admin Portal</h2>
+            <h2 className="font-serif text-3xl text-[#997451]">Admin Portal</h2>
             <p className="text-sm uppercase tracking-widest text-neutral-500">
               Please authenticate to continue
             </p>
@@ -90,7 +90,7 @@ export default function AdminLoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-4 py-3 bg-[#FDFBF7] border border-[#E0D9C8] focus:outline-none focus:ring-1 focus:ring-[#C8A366] text-sm transition-colors text-[#1E332D]"
+                className="w-full px-4 py-3 bg-[#FDFBF7] border border-[#E0D9C8] focus:outline-none focus:ring-1 focus:ring-[#C8A366] text-sm transition-colors text-[#997451]"
                 placeholder="admin@archies.com"
               />
             </div>
@@ -104,7 +104,7 @@ export default function AdminLoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full px-4 py-3 bg-[#FDFBF7] border border-[#E0D9C8] focus:outline-none focus:ring-1 focus:ring-[#C8A366] text-sm transition-colors text-[#1E332D]"
+                className="w-full px-4 py-3 bg-[#FDFBF7] border border-[#E0D9C8] focus:outline-none focus:ring-1 focus:ring-[#C8A366] text-sm transition-colors text-[#997451]"
                 placeholder="••••••••"
               />
             </div>
@@ -112,7 +112,7 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-4 bg-[#1E332D] text-white text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#C8A366] transition-all duration-300 shadow-lg flex items-center justify-center gap-3 group mt-8 disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full py-4 bg-[#997451] text-white text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#C8A366] transition-all duration-300 shadow-lg flex items-center justify-center gap-3 group mt-8 disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {isLoading ? "Authenticating..." : "Access Portal"}
               {!isLoading && <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />}

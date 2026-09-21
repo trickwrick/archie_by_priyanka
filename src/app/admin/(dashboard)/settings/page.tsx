@@ -9,7 +9,7 @@ export default function AdminSettings() {
       {/* General Settings */}
       <div className="bg-white border border-[#E0D9C8] shadow-sm">
         <div className="p-6 border-b border-[#E0D9C8]">
-          <h2 className="font-serif text-xl text-[#1E332D]">General Settings</h2>
+          <h2 className="font-serif text-xl text-[#997451]">General Settings</h2>
         </div>
         <div className="p-6 space-y-6">
           <div>
@@ -24,7 +24,7 @@ export default function AdminSettings() {
         <div className="p-6 border-t border-[#E0D9C8] bg-neutral-50 flex justify-start">
           <button 
             onClick={() => alert("General Settings Saved")}
-            className="bg-[#1E332D] text-white px-6 py-2.5 text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:bg-[#C8A366] transition-colors"
+            className="bg-[#997451] text-white px-6 py-2.5 text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:bg-[#C8A366] transition-colors"
           >
             <Save className="w-4 h-4" /> Save Changes
           </button>
@@ -34,7 +34,7 @@ export default function AdminSettings() {
       {/* Security / Password Change */}
       <div className="bg-white border border-[#E0D9C8] shadow-sm">
         <div className="p-6 border-b border-[#E0D9C8]">
-          <h2 className="font-serif text-xl text-[#1E332D] flex items-center gap-2">
+          <h2 className="font-serif text-xl text-[#997451] flex items-center gap-2">
             <Key className="w-5 h-5 text-[#C8A366]" /> Security
           </h2>
           <p className="text-xs text-neutral-500 mt-1">Update your admin dashboard password.</p>
@@ -58,7 +58,7 @@ export default function AdminSettings() {
         <div className="p-6 border-t border-[#E0D9C8] bg-neutral-50 flex justify-start">
           <button 
             onClick={() => alert("Password Change action triggered")}
-            className="bg-[#1E332D] text-white px-6 py-2.5 text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:bg-[#C8A366] transition-colors"
+            className="bg-[#997451] text-white px-6 py-2.5 text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:bg-[#C8A366] transition-colors"
           >
             <Save className="w-4 h-4" /> Update Password
           </button>

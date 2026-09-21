@@ -53,8 +53,8 @@ export default function AdminProducts() {
   return (
     <div className="bg-white border border-[#E0D9C8] shadow-sm">
       <div className="p-6 border-b border-[#E0D9C8] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <h2 className="font-serif text-xl text-[#1E332D]">Product Catalog</h2>
-        <Link href="/admin/products/new" className="bg-[#1E332D] text-white px-4 py-2 text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:bg-[#C8A366] transition-colors">
+        <h2 className="font-serif text-xl text-[#997451]">Product Catalog</h2>
+        <Link href="/admin/products/new" className="bg-[#997451] text-white px-4 py-2 text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:bg-[#C8A366] transition-colors">
           <Plus className="w-4 h-4" /> Add Product
         </Link>
       </div>
@@ -89,9 +89,9 @@ export default function AdminProducts() {
                   <td className="p-4">
                     <img src={product.image} alt={product.name} className="w-12 h-16 object-cover bg-neutral-100" />
                   </td>
-                  <td className="p-4 text-sm font-medium text-[#1E332D]">{product.name}</td>
+                  <td className="p-4 text-sm font-medium text-[#997451]">{product.name}</td>
                   <td className="p-4 text-sm text-neutral-600">{product.category}</td>
-                  <td className="p-4 text-sm font-bold text-[#1E332D]">₹{product.price.toLocaleString()}</td>
+                  <td className="p-4 text-sm font-bold text-[#997451]">₹{product.price.toLocaleString()}</td>
                   <td className="p-4 text-center space-x-3">
                     <Link href={`/admin/products/${product.id}`} className="text-blue-500 hover:text-blue-700">
                       <Edit2 className="w-4 h-4 inline" />
