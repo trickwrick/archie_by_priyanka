@@ -26,7 +26,7 @@ export default function ShippingPage() {
               <strong>Ready-to-Wear:</strong> Orders are processed and dispatched within 2-3 business days.
             </p>
             <p className="leading-relaxed mt-2">
-              <strong>Bespoke Custom Fits:</strong> Because these pieces are made-to-measure by our skilled artisans, please allow 10-14 business days for production before your item is shipped.
+              <strong>Handcrafted Atelier Orders:</strong> Each piece is meticulously inspected by our master artisans to guarantee zero defects and pristine luxury quality.
             </p>
           </section>
 

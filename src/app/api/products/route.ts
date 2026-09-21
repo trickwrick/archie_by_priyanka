@@ -16,10 +16,12 @@ export async function GET() {
       .sort({ _id: -1 })
       .toArray();
 
-    // Map _id to id for frontend compatibility
+    // Map _id to id for frontend compatibility and filter out custom fit
     const formattedProducts = products.map((product) => ({
       ...product,
       id: product._id.toString(),
+      sizes: (Array.isArray(product.sizes) ? product.sizes : ['XS', 'S', 'M', 'L'])
+        .filter((s: string) => !s.toLowerCase().includes('custom')),
       _id: undefined, // Remove the raw MongoDB _id
     }));
 
@@ -55,7 +57,7 @@ export async function POST(request: Request) {
       image: body.image || '/images/hero_beach_luxury.jpg', // Placeholder default
       images: body.images || [],
       colors: body.colors || [{ name: 'Black', hex: '#000000' }],
-      sizes: body.sizes || ['XS', 'S', 'M', 'L', 'XL'],
+      sizes: (Array.isArray(body.sizes) ? body.sizes : ['XS', 'S', 'M', 'L']).filter((s: string) => !s.toLowerCase().includes('custom')),
       badge: body.badge || undefined,
       createdAt: new Date(),
     };

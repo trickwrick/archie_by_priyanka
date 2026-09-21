@@ -3,14 +3,10 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Product } from "@/data/products";
-import { X, Trash2, ShoppingBag, Sparkles, ArrowRight, ShieldCheck, Truck } from "lucide-react";
-import { useShop, CartItem } from "@/context/ShopContext";
+import { X, Trash2, ShoppingBag, ArrowRight, ShieldCheck, Truck } from "lucide-react";
+import { useShop } from "@/context/ShopContext";
 
-interface CartDrawerProps {
-}
-
-export default function CartDrawer({
-  }: CartDrawerProps) {
+export default function CartDrawer() {
   const { isCartOpen, setIsCartOpen, cartItems, updateQuantity, removeFromCart } = useShop();
   const [promoCode, setPromoCode] = useState("");
   const [discountApplied, setDiscountApplied] = useState(false);
@@ -180,20 +176,6 @@ export default function CartDrawer({
                 Apply
               </button>
             </div>
-
-            {/* Custom fit note trigger */}
-            <button
-              onClick={() => {
-                setIsCartOpen(false);
-              }}
-              className="w-full text-left py-2 px-3 bg-[#F8F5EE] border border-[#E0D9C8] text-[11px] text-[#9A7B38] font-bold flex items-center justify-between"
-            >
-              <span className="flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5" />
-                Need custom sizing adjustments for items in bag?
-              </span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
 
             {/* Summary Lines */}
             <div className="space-y-1.5 text-xs text-[#444] pt-2">

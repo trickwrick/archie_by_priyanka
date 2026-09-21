@@ -129,7 +129,7 @@ export default function BrandPromises() {
         >
           {[
             { value: "500+", label: "Pieces Crafted" },
-            { value: "100%", label: "Custom Fit Guarantee" },
+            { value: "100%", label: "Quality Guarantee" },
             { value: "4.9★", label: "Customer Rating" },
           ].map((stat) => (
             <div key={stat.label} className="flex flex-col items-center p-6 bg-white/40 rounded-2xl border border-white/60 shadow-sm hover:shadow-md transition-shadow">

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Product } from "@/data/products";
-import { X, Heart, ShoppingBag, Sparkles, Check, ShieldCheck, Truck } from "lucide-react";
+import { X, ShoppingBag, Check } from "lucide-react";
 
 interface QuickViewModalProps {
   product: Product | null;
@@ -122,18 +122,11 @@ export default function QuickViewModal({
                 <span className="text-xs font-bold uppercase tracking-wider text-[#333]">
                   Select Size:
                 </span>
-                <button
-                  onClick={() => {
-                    onClose();
-                  }}
-                  className="text-xs font-bold text-[#9A7B38] hover:underline flex items-center gap-1"
-                >
-                  <Sparkles className="w-3 h-3" />
-                  Request Custom Measurement Fit
-                </button>
               </div>
               <div className="flex flex-wrap gap-2">
-                {product.sizes.map((s) => (
+                {product.sizes
+                  .filter((s) => !s.toLowerCase().includes("custom"))
+                  .map((s) => (
                   <button
                     key={s}
                     onClick={() => {

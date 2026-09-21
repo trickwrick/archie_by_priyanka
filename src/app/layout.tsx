@@ -19,12 +19,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://archiesbypriyanka.vercel.app"),
   title: "Archie's by Priyanka | Luxury Handcrafted Swimwear & Resort Wear Mumbai",
   description:
-    "Discover high-fashion handcrafted luxury swimwear, monokinis, bikinis, mesh cutouts, and bespoke resortwear designed for confidence by Priyanka in Mumbai. Global custom fitting available.",
+    "Discover high-fashion handcrafted luxury swimwear, monokinis, bikinis, mesh cutouts, and resortwear designed for confidence by Priyanka in Mumbai. Worldwide luxury shipping.",
   keywords: [
     "Archies by Priyanka",
     "Luxury Swimwear Mumbai",
-    "Bespoke Bikinis",
-    "Custom Fit Swimwear",
+    "Designer Bikinis",
     "Resortwear India",
     "OYE Swimwear Style",
     "High Fashion Swimsuits",

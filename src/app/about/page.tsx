@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
@@ -13,11 +14,12 @@ export default function AboutPage() {
       <Navbar />
 
       <div className="flex-1">
-        {/* Hero Section for About */}
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 mb-20 text-center">
-          <h1 className="font-serif text-4xl md:text-6xl text-[#1E332D] mb-6">Our Story</h1>
-          <p className="text-sm uppercase tracking-[0.2em] text-neutral-500 max-w-2xl mx-auto leading-relaxed">
-            Redefining luxury resort wear through meticulous craftsmanship, bespoke tailoring, and a commitment to zero-pinch confidence.
+        {/* Hero Section */}
+        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center mb-16 md:mb-24">
+          <h1 className="font-serif text-4xl md:text-6xl text-[#1E332D] mb-6">Our Atelier Story</h1>
+          <p className="text-xs uppercase tracking-[0.25em] text-[#C8A366] font-bold mb-8">Archie's by Priyanka</p>
+          <p className="text-base md:text-lg text-neutral-600 leading-relaxed font-light">
+            Redefining luxury resort wear through meticulous craftsmanship, sculptural cuts, and an unyielding commitment to confidence.
           </p>
         </div>
 
@@ -38,7 +40,7 @@ export default function AboutPage() {
               Archie's by Priyanka was born out of a simple, yet profound realization: standard swimwear sizes rarely fit the beautiful complexity of real human bodies. Our founder, Priyanka, noticed that women were constantly compromising—choosing between style and comfort, between fashion-forward cutouts and the security of a perfect fit.
             </p>
             <p className="text-neutral-600 leading-relaxed text-sm md:text-base">
-              Trained in traditional couture techniques, Priyanka set out to disrupt the luxury swimwear market by introducing the concept of bespoke fitting to resort wear. Every piece we create is more than just a garment; it is a meticulously engineered second skin designed to empower.
+              Trained in traditional couture techniques, Priyanka set out to create luxury resort wear that flatters and holds with uncompromising elegance. Every piece we create is more than just a garment; it is a meticulously engineered second skin designed to empower.
             </p>
             <div className="pt-6 border-t border-[#E0D9C8]">
               <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-[#C8A366] mb-4">Our Core Philosophy</h3>
@@ -51,17 +53,18 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Bespoke Call to Action */}
+        {/* Collection Call to Action */}
         <div className="bg-[#1E332D] text-white py-24 px-6 text-center">
-          <h2 className="font-serif text-3xl md:text-5xl mb-6">Experience the Perfect Fit</h2>
+          <h2 className="font-serif text-3xl md:text-5xl mb-6">Discover the Atelier</h2>
           <p className="text-white/70 max-w-xl mx-auto mb-10 text-sm tracking-wide leading-relaxed">
-            Ready to stop compromising? Book a consultation with Priyanka to have your next luxury monokini tailored to your exact anatomical measurements.
+            Explore our curated collections of monokinis, bikinis, and statement resort pieces crafted with Italian lycra and 24K gold hardware.
           </p>
-          <button
-            className="bg-[#C8A366] text-white px-8 py-4 text-xs font-bold uppercase tracking-[0.25em] hover:bg-white hover:text-[#1E332D] transition-colors shadow-xl"
+          <Link
+            href="/products"
+            className="inline-block bg-[#C8A366] text-white px-8 py-4 text-xs font-bold uppercase tracking-[0.25em] hover:bg-white hover:text-[#1E332D] transition-colors shadow-xl"
           >
-            Start Your Bespoke Journey
-          </button>
+            Explore The Collection
+          </Link>
         </div>
       </div>
 

@@ -99,7 +99,7 @@ export default function EditorialSection({}: EditorialSectionProps) {
             </p>
 
             <ul className="space-y-3 mb-10">
-              {["Sheer Optical Mesh Panels", "Italian Lycra Lining", "UV 50+ Protection", "Available in Custom Fit"].map((feat) => (
+              {["Sheer Optical Mesh Panels", "Italian Lycra Lining", "UV 50+ Protection", "Tailored Sculpting Fit"].map((feat) => (
                 <li key={feat} className="flex items-center gap-4 text-xs text-white/90 font-medium tracking-wide">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#C8A366] shrink-0" />
                   {feat}

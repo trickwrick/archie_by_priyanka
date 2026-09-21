@@ -28,12 +28,9 @@ export default function ReturnsPage() {
           </section>
 
           <section>
-            <h2 className="font-serif text-2xl text-[#1E332D] mb-4">Bespoke & Custom Orders</h2>
+            <h2 className="font-serif text-2xl text-[#1E332D] mb-4">Hygiene & Intimates Policy</h2>
             <p className="leading-relaxed">
-              Due to the highly personalized nature of our bespoke and custom-fitted pieces, **all custom orders are final sale**. These items are meticulously handcrafted to your exact anatomical measurements and cannot be restocked.
-            </p>
-            <p className="leading-relaxed mt-4">
-              If you experience a fit issue with your bespoke piece, please contact us within 7 days of receipt. Priyanka and our atelier team will work with you to provide complimentary alterations to ensure zero-pinch confidence.
+              For health and hygiene reasons, all swimwear must be tried on over underwear without removing the protective hygiene strip. Items returned without the hygiene liner intact or showing signs of wear are not eligible for return or exchange.
             </p>
           </section>
 

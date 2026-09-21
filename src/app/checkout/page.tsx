@@ -52,7 +52,7 @@ export default function CheckoutPage() {
           <CheckCircle className="w-20 h-20 text-[#C8A366] mx-auto mb-6" />
           <h1 className="font-serif text-4xl text-[#1E332D] mb-4">Order Confirmed</h1>
           <p className="text-neutral-600 mb-8 max-w-md mx-auto leading-relaxed">
-            Thank you for shopping with Archie's by Priyanka. Your bespoke luxury swimwear is being prepared. We will notify you once it ships.
+            Thank you for shopping with Archie&apos;s by Priyanka. Your luxury swimwear is being prepared with care in our atelier. We will notify you once it ships.
           </p>
           <div className="flex gap-4 justify-center">
             <Link

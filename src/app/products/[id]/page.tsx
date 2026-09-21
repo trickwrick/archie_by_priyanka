@@ -32,9 +32,11 @@ export default function ProductDetailsPage() {
         
         const p = data.find((item) => item.id === id);
         if (p) {
-          setProduct(p);
-          setSelectedSize(p.sizes[0]);
-          setSelectedColor(p.colors[0].name);
+          const cleanSizes = (p.sizes || []).filter((s: string) => !s.toLowerCase().includes("custom"));
+          const cleanProduct = { ...p, sizes: cleanSizes.length > 0 ? cleanSizes : ["XS", "S", "M", "L"] };
+          setProduct(cleanProduct);
+          setSelectedSize(cleanProduct.sizes[0]);
+          setSelectedColor(p.colors[0]?.name || "");
 
           const related = data.filter((item) => item.category === p.category && item.id !== p.id)
             .sort(() => 0.5 - Math.random())
@@ -151,7 +153,9 @@ export default function ProductDetailsPage() {
                 </button>
               </div>
               <div className="grid grid-cols-4 gap-2">
-                {product.sizes.map((size) => (
+                {product.sizes
+                  .filter((size) => !size.toLowerCase().includes("custom"))
+                  .map((size) => (
                   <button
                     key={size}
                     onClick={() => {
@@ -234,7 +238,7 @@ export default function ProductDetailsPage() {
                       {[1,2,3,4,5].map(i => <Star key={i} className="w-3 h-3 fill-current" />)}
                     </div>
                   </div>
-                  <p className="text-sm text-neutral-600 italic">"I love the bespoke fitting service. It hugs my body in all the right places. Will definitely order the other color soon!"</p>
+                  <p className="text-sm text-neutral-600 italic">&ldquo;The fit is incredible and hugs my body in all the right places. The fabric quality is top-notch. Will definitely order the other color soon!&rdquo;</p>
                 </div>
               </div>
             </div>

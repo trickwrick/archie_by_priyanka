@@ -39,7 +39,7 @@ export default function AdminLoginPage() {
             Archie's Command Center
           </h1>
           <p className="text-sm uppercase tracking-widest text-white/60 leading-relaxed">
-            Exclusive access for administration, order management, and bespoke client fitting schedules.
+            Exclusive access for administration, inventory control, and order fulfillment.
           </p>
         </div>
         

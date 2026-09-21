@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
+import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function FullWidthEditorial() {
@@ -95,18 +96,18 @@ export default function FullWidthEditorial() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center gap-3"
         >
-          <a
-            href="#collections"
+          <Link
+            href="/products"
             className="px-6 py-2.5 border border-white text-white text-[10px] font-black uppercase tracking-[0.25em] hover:bg-white hover:text-black transition-all"
           >
             EXPLORE COLLECTION
-          </a>
-          <button
+          </Link>
+          <Link
+            href="/about"
             className="px-6 py-2.5 bg-white/10 backdrop-blur-sm border border-white/30 text-white text-[10px] font-black uppercase tracking-[0.25em] hover:bg-white/20 transition-all"
-            onClick={() => document.getElementById("custom-fit-trigger")?.click()}
           >
-            BOOK CUSTOM FIT
-          </button>
+            OUR STORY
+          </Link>
         </motion.div>
       </motion.div>
     </section>

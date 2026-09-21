@@ -17,7 +17,7 @@ export default function ContactPage() {
         <div className="text-center mb-16">
           <h1 className="font-serif text-4xl md:text-5xl text-[#1E332D] mb-6">Contact Us</h1>
           <p className="text-sm uppercase tracking-[0.2em] text-neutral-500 max-w-2xl mx-auto leading-relaxed">
-            We are here to assist you with bespoke fitting inquiries, order tracking, and style advice.
+            We are here to assist you with product inquiries, order tracking, and styling advice.
           </p>
         </div>
 
@@ -64,15 +64,18 @@ export default function ContactPage() {
             </div>
 
             <div className="bg-[#1E332D] p-8 text-white">
-              <h3 className="font-serif text-xl mb-4">Book a Bespoke Consultation</h3>
+              <h3 className="font-serif text-xl mb-4">VIP Style & Sizing Advice</h3>
               <p className="text-sm text-white/70 mb-6 leading-relaxed">
-                Experience our signature zero-pinch fitting process. Connect directly with Priyanka to design your perfect swimsuit.
+                Need guidance selecting your ideal silhouette or sizing? Connect directly with our Mumbai atelier stylists via WhatsApp.
               </p>
-              <button
+              <a
+                href="https://wa.me/919876543210"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-xs font-bold uppercase tracking-[0.2em] text-[#C8A366] hover:text-white transition-colors flex items-center gap-2"
               >
-                Open Fitting Studio <ArrowRight className="w-4 h-4" />
-              </button>
+                Chat on WhatsApp <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
           </div>
 
@@ -122,7 +125,7 @@ export default function ContactPage() {
                 </label>
                 <select className="w-full px-4 py-3 bg-white border border-[#E0D9C8] focus:outline-none focus:ring-1 focus:ring-[#C8A366] text-sm transition-colors text-neutral-700">
                   <option>Order Inquiry</option>
-                  <option>Custom Fitting Question</option>
+                  <option>Sizing & Fit Advice</option>
                   <option>Press / Partnerships</option>
                   <option>Other</option>
                 </select>

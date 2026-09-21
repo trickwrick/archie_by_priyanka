@@ -18,7 +18,7 @@ export default function AccountPage() {
           <User className="w-10 h-10 text-[#C8A366] mx-auto mb-4 stroke-1" />
           <h1 className="font-serif text-4xl md:text-5xl text-[#1E332D] mb-4">My Account</h1>
           <p className="text-sm uppercase tracking-widest text-neutral-500">
-            Sign in to access your bespoke orders and saved items.
+            Sign in to access your orders and saved items.
           </p>
         </div>
 
@@ -75,7 +75,7 @@ export default function AccountPage() {
                 <p>Join Archie's VIP Circle to unlock exclusive privileges:</p>
                 <ul className="space-y-3 list-disc list-inside marker:text-[#C8A366]">
                   <li>Early access to limited-edition collections.</li>
-                  <li>Track your orders and bespoke tailoring requests.</li>
+                  <li>Track your orders and shipment status.</li>
                   <li>Save your favorite pieces to your wishlist.</li>
                   <li>Faster checkout with saved addresses.</li>
                 </ul>

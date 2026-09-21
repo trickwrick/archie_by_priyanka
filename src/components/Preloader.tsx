@@ -36,21 +36,8 @@ export default function Preloader() {
   if (hasSeen) return null;
 
   return (
-    <>
-      {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-      <script
-        id="hide-preloader"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: `
-            if (sessionStorage.getItem("hasSeenPreloader")) {
-              document.documentElement.classList.add('hide-preloader');
-            }
-          `
-        }}
-      />
-      <AnimatePresence>
-        {isLoading && (
+    <AnimatePresence>
+      {isLoading && (
           <motion.div
             id="preloader-overlay"
             key="preloader"
@@ -99,6 +86,5 @@ export default function Preloader() {
         </motion.div>
       )}
     </AnimatePresence>
-    </>
   );
 }

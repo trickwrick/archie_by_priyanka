@@ -98,11 +98,8 @@ export default function Home() {
       <Footer />
 
       {/* Cart Drawer */}
-      <CartDrawer
-      />
+      <CartDrawer />
 
-      {/* Custom Fit Studio Modal */}
-      
       {/* Quick View Modal */}
       <QuickViewModal
         product={quickViewProduct}

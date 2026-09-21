@@ -1,12 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { ArrowDown, ChevronDown } from "lucide-react";
 
-interface HeroProps {
-}
-
-export default function Hero({}: HeroProps) {
+export default function Hero() {
   const slides = [
     {
       id: 1,
@@ -69,11 +67,12 @@ export default function Hero({}: HeroProps) {
               >
                 SHOP NOW
               </a>
-              <button
+              <Link
+                href="/products"
                 className="px-6 py-3.5 bg-black/40 backdrop-blur-md text-white font-semibold text-xs tracking-[0.25em] uppercase hover:bg-white hover:text-black transition-all border border-white/40"
               >
-                CUSTOM FIT
-              </button>
+                EXPLORE
+              </Link>
             </div>
           </div>
 
