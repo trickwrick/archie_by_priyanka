@@ -87,9 +87,7 @@ export default function Navbar({
                 <Link href="/products?category=Bikinis" className="hover:text-[#C8A366] transition-colors">
                   BIKINIS
                 </Link>
-                <button className="hover:text-[#C8A366] transition-colors">
-                  CUSTOM FIT
-                </button>
+
               </div>
             </div>
 
@@ -187,14 +185,7 @@ export default function Navbar({
               <Link href="/account" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#C8A366] flex items-center gap-3">
                 <User className="w-4 h-4 stroke-1" /> MY ACCOUNT
               </Link>
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                }}
-                className="text-left text-[#C8A366] flex items-center gap-3"
-              >
-                <Sparkles className="w-4 h-4 stroke-1" /> BESPOKE CUSTOM FITTING
-              </button>
+
             </div>
           </div>
           
@@ -202,14 +193,7 @@ export default function Navbar({
             <a href="#instagram" onClick={() => setMobileMenuOpen(false)} className="block text-center text-xs tracking-widest text-white/70 hover:text-[#C8A366]">
               IG @ARCHIE_BY_PRIYANKA
             </a>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-              }}
-              className="w-full py-4 bg-[#C8A366] text-white font-semibold text-xs tracking-[0.25em] uppercase hover:bg-white hover:text-[#1E332D] transition-colors"
-            >
-              BOOK CUSTOM FITTING
-            </button>
+
           </div>
         </div>
       )}
