@@ -20,8 +20,8 @@ export default function StickyProductGrid({ products, onQuickView }: StickyProdu
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 relative items-stretch">
           
           {/* Left Side: Sticky Banner Container */}
-          <div className="w-full lg:w-1/4 shrink-0 relative mb-8 lg:mb-0">
-            <div className="lg:sticky lg:top-32 w-full h-112.5 bg-[#F8E7D8] rounded-xl overflow-hidden flex flex-col items-center shadow-sm">
+          <div className="w-full lg:w-1/3 shrink-0 relative mb-8 lg:mb-0">
+            <div className="lg:sticky lg:top-32 w-full h-[600px] bg-[#F8E7D8] rounded-xl overflow-hidden flex flex-col items-center shadow-sm">
               {/* Banner Top Text/Graphic */}
               <div className="pt-8 pb-4 px-4 text-center w-full relative z-10">
                 <div className="inline-block bg-[#F1592A] text-white px-6 py-2 text-2xl font-black tracking-widest relative">
@@ -36,7 +36,7 @@ export default function StickyProductGrid({ products, onQuickView }: StickyProdu
               </div>
 
               {/* Banner Image */}
-              <div className="relative w-full flex-1 min-h-80">
+              <div className="relative w-full flex-1 min-h-[300px]">
                 <img
                   src="/images/hero_beach_luxury.jpg" 
                   alt="Deal of the day"
@@ -59,7 +59,7 @@ export default function StickyProductGrid({ products, onQuickView }: StickyProdu
           </div>
 
           {/* Right Side: Scrolling Product Grid */}
-          <div className="w-full lg:w-3/4">
+          <div className="w-full lg:w-2/3">
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {gridProducts.map((product, idx) => (
                 <div
