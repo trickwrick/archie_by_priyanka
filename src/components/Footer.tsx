@@ -90,9 +90,13 @@ export default function Footer({ onOpenCustomFitModal }: FooterProps) {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="hover:text-[#C8A366] transition-colors">
-                    Contact Atelier
-                  </Link>
+                  <button
+                    onClick={onOpenCustomFitModal}
+                    className="text-[#C8A366] font-bold hover:underline flex items-center gap-1"
+                  >
+                    <Sparkles className="w-3 h-3" />
+                    Bespoke Fitting
+                  </button>
                 </li>
                 <li>
                   <Link href="/admin/login" className="hover:text-[#C8A366] transition-colors">
@@ -131,34 +135,45 @@ export default function Footer({ onOpenCustomFitModal }: FooterProps) {
               </ul>
             </div>
 
-            {/* Client Care */}
+            {/* Customer Care */}
             <div>
               <h4 className="font-serif text-base font-medium text-white mb-4 tracking-wider uppercase">
-                Client Care
+                Customer Care
               </h4>
               <ul className="space-y-2.5">
                 <li>
-                  <button
-                    onClick={onOpenCustomFitModal}
-                    className="text-[#C8A366] font-bold hover:underline flex items-center gap-1"
-                  >
-                    <Sparkles className="w-3 h-3" />
-                    Bespoke Fitting
-                  </button>
-                </li>
-                <li>
-                  <Link href="/faq" className="hover:text-[#C8A366] transition-colors">
-                    FAQ & Lycra Guide
-                  </Link>
-                </li>
-                <li>
                   <Link href="/shipping" className="hover:text-[#C8A366] transition-colors">
-                    Global Shipping
+                    Shipping / Track Your Order
                   </Link>
                 </li>
                 <li>
                   <Link href="/returns" className="hover:text-[#C8A366] transition-colors">
-                    Returns & Exchanges
+                    Return & Refund Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/returns" className="hover:text-[#C8A366] transition-colors">
+                    Cancellation / Return Order
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/terms" className="hover:text-[#C8A366] transition-colors">
+                    Terms & Conditions
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/privacy" className="hover:text-[#C8A366] transition-colors">
+                    Privacy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/faq" className="hover:text-[#C8A366] transition-colors">
+                    FAQ
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="hover:text-[#C8A366] transition-colors">
+                    Contact Us
                   </Link>
                 </li>
               </ul>
