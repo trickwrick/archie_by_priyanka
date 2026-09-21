@@ -79,10 +79,10 @@ export default function BrandPromises() {
             THE ARCHIE PROMISE
             <span className="w-12 h-[2px] bg-[#C8A366] inline-block" />
           </span>
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-7xl font-bold text-[#1E332D] tracking-tight leading-[1.1] drop-shadow-sm">
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light text-[#1E332D] tracking-tight leading-[1.05]">
             Designed Around
             <br />
-            <em className="text-[#C8A366] italic drop-shadow-md">You</em>
+            <em className="text-[#C8A366]">You</em>
           </h2>
         </motion.div>
 
