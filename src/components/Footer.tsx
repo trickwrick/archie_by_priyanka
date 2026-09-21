@@ -36,7 +36,7 @@ export default function Footer({}: FooterProps) {
   };
 
   return (
-    <footer className="bg-[#1E332D] text-white pt-20 pb-10 border-t border-[#C8A366]/30">
+    <footer className="bg-[#997451] text-white pt-20 pb-10 border-t border-[#C8A366]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Newsletter & Atelier Box */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 pb-16 border-b border-[#C8A366]/30">
@@ -64,7 +64,7 @@ export default function Footer({}: FooterProps) {
                 />
                 <button
                   type="submit"
-                  className="px-6 py-3 bg-[#C8A366] text-[#1E332D] font-bold text-xs uppercase tracking-widest hover:bg-white transition-colors flex items-center gap-2"
+                  className="px-6 py-3 bg-[#C8A366] text-[#997451] font-bold text-xs uppercase tracking-widest hover:bg-white transition-colors flex items-center gap-2"
                 >
                   Join <Send className="w-3.5 h-3.5" />
                 </button>
@@ -101,7 +101,7 @@ export default function Footer({}: FooterProps) {
                 </div>
                 {/* COD */}
                 <div className="bg-[#C8A366] px-2.5 py-1 rounded-sm shadow-sm flex items-center justify-center h-8" title="Cash on Delivery">
-                  <span className="text-[#1E332D] font-bold text-[10px]">COD</span>
+                  <span className="text-[#997451] font-bold text-[10px]">COD</span>
                 </div>
                 {/* BHIM UPI */}
                 <div className="bg-white px-2 py-1 rounded-sm shadow-sm flex items-center justify-center gap-1 h-8" title="BHIM UPI">

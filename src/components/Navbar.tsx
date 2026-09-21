@@ -52,7 +52,7 @@ export default function Navbar({
       <nav
         className={`w-full transition-all duration-300 ease-in-out ${
           isScrolled || !isHome
-            ? "bg-[#1E332D]/95 backdrop-blur-md shadow-md py-3"
+            ? "bg-[#997451]/95 backdrop-blur-md shadow-md py-3"
             : "bg-linear-to-b from-black/50 to-transparent py-4 md:py-6"
         }`}
       >
@@ -164,7 +164,7 @@ export default function Navbar({
 
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-[#1E332D] lg:hidden p-8 flex flex-col justify-between text-white animate-in slide-in-from-left duration-300">
+        <div className="fixed inset-0 z-50 bg-[#997451] lg:hidden p-8 flex flex-col justify-between text-white animate-in slide-in-from-left duration-300">
           <div>
             <div className="flex justify-between items-center pb-6 border-b border-white/20">
               <Link href="/" onClick={() => setMobileMenuOpen(false)}>

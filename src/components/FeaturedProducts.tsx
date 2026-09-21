@@ -23,8 +23,12 @@ export default function FeaturedProducts({
   const sectionRef = useRef<HTMLElement>(null);
   const isSectionInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
-  // Curated 4 products for Editor's Picks
-  const editorsPicks = products.slice(0, 4);
+  // Curated 4 products for Best Sellers (prioritize bestseller tagged products)
+  const bestsellerProducts = products.filter((p) => p.isBestseller);
+  const bestSellers =
+    bestsellerProducts.length >= 4
+      ? bestsellerProducts.slice(0, 4)
+      : products.slice(0, 4);
 
   return (
     <section
@@ -54,7 +58,7 @@ export default function FeaturedProducts({
                 transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.1 }}
                 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#1E332D]"
               >
-                Editor&apos;s <span className="italic text-[#9A7B38]">Picks</span>
+                Best <span className="italic text-[#9A7B38]">Sellers</span>
               </motion.h2>
             </div>
           </div>
@@ -81,7 +85,7 @@ export default function FeaturedProducts({
           variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
         >
-          {editorsPicks.map((product) => (
+          {bestSellers.map((product) => (
             <motion.div key={product.id} variants={cardVariants} className="group cursor-pointer">
               {/* Large Image Card */}
               <div className="relative overflow-hidden aspect-3/4 bg-neutral-100 mb-6 rounded-sm">
