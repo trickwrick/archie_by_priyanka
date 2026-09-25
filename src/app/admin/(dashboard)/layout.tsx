@@ -3,8 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LogOut, Users, ShoppingBag, LayoutDashboard, Settings, Package, Tag, Image as ImageIcon } from "lucide-react";
-import Logo from "@/components/Logo";
+import { LogOut, Users, ShoppingBag, LayoutDashboard, Settings, Package, Tag, Image as ImageIcon, Menu } from "lucide-react";
 
 export default function DashboardLayout({
   children,
@@ -24,61 +23,46 @@ export default function DashboardLayout({
   ];
 
   return (
-    <div className="min-h-screen flex bg-[#FDFBF7]">
+    <div className="min-h-screen flex bg-[#F4F7F6] font-sans">
       {/* Sidebar */}
-      <aside className="w-64 bg-[#997451] text-white flex flex-col transition-all duration-300 shrink-0 h-screen sticky top-0">
-        <div className="p-6 border-b border-white/10 flex justify-center">
-          <Link href="/admin">
-            <Logo light={true} compact={true} />
-          </Link>
+      <aside className="w-64 bg-white border-r border-gray-200 flex flex-col shrink-0 h-screen sticky top-0 shadow-sm">
+        <div className="h-20 flex items-center px-6 gap-3 border-b border-transparent">
+          <Menu className="w-5 h-5 text-gray-700" />
+          <span className="font-bold text-gray-900 text-lg">Admin Panel</span>
         </div>
         
-        <nav className="flex-1 py-8 px-4 space-y-2 overflow-y-auto">
+        <nav className="flex-1 py-6 px-4 space-y-1 overflow-y-auto">
+          <p className="px-3 text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-4">Management</p>
           {links.map((link) => {
             const Icon = link.icon;
-            const isActive = pathname === link.href;
+            // Handle matching the base /admin route correctly vs sub-routes
+            const isActive = link.href === "/admin" ? pathname === "/admin" : pathname.startsWith(link.href);
             
             return (
               <Link 
                 key={link.name}
                 href={link.href} 
-                className={`flex items-center gap-3 px-4 py-3 rounded-sm text-xs font-bold uppercase tracking-widest transition-colors ${
+                className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                   isActive 
-                    ? "bg-[#C8A366]/20 text-[#C8A366]" 
-                    : "text-white/70 hover:bg-white/5 hover:text-white"
+                    ? "bg-[#FFF0F0] text-[#E02424]" 
+                    : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                 }`}
               >
-                <Icon className="w-4 h-4 stroke-1" /> {link.name}
+                <Icon className={`w-4 h-4 ${isActive ? 'text-[#E02424]' : 'text-gray-500'}`} /> {link.name}
               </Link>
             );
           })}
         </nav>
         
-        <div className="p-4 border-t border-white/10">
-          <Link href="/admin/login" className="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-[#C8A366] text-xs font-bold uppercase tracking-widest transition-colors">
-            <LogOut className="w-4 h-4 stroke-1" /> Sign Out
+        <div className="p-4">
+          <Link href="/admin/login" className="flex items-center justify-center gap-2 w-full bg-[#E02424] text-white py-2.5 rounded-lg font-medium text-sm hover:bg-red-700 transition-colors shadow-sm">
+            Logout
           </Link>
         </div>
       </aside>
 
       {/* Main Content Area */}
       <main className="flex-1 flex flex-col min-h-screen">
-        {/* Topbar */}
-        <header className="h-20 shrink-0 bg-white border-b border-[#E0D9C8] flex items-center justify-between px-8 sticky top-0 z-10">
-          <h1 className="font-serif text-2xl text-[#997451]">
-            {links.find(l => l.href === pathname)?.name || "Dashboard"}
-          </h1>
-          <div className="flex items-center gap-4">
-            <div className="text-right hidden md:block">
-              <p className="text-xs font-bold uppercase tracking-widest text-[#997451]">Admin User</p>
-              <p className="text-[10px] text-neutral-500 uppercase tracking-widest">admin@archies.com</p>
-            </div>
-            <div className="w-10 h-10 bg-[#C8A366] rounded-full flex items-center justify-center text-white font-serif text-lg">
-              A
-            </div>
-          </div>
-        </header>
-
         {/* Dynamic Page Content */}
         <div className="flex-1 p-8">
           {children}
